@@ -40,8 +40,9 @@ Android itself only installs an update if it is signed with the same key as the 
 3. Tap **Start**. Mining runs as a foreground service with a notification; the app shows hash rate, shares and
    earnings from the pool.
 
-**Heat and battery:** if the battery gets too warm, CorePulse pauses by itself and stops if the phone does not cool
-down. At low battery it stops so the phone does not run empty. Best to mine while charging from a wall charger.
+**Heat and battery:** at a battery temperature of 50 °C CorePulse pauses and continues below 45 °C; at 55 °C, or if
+the phone does not cool down within 15 minutes, it stops. Without a charger it stops at 20 % battery. Best to mine
+while charging from a wall charger.
 
 **Support share (0.42 %):** every 100 minutes, at a random moment, the app computes for 25 seconds for the TMMAC
 address `cb292120d3abc3b8330a26daf4beb94b1f6a9c7b4963` (worker `app-support`), over a short second connection to
