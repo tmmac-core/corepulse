@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App-Symbol Vordergrund: Corecoin mit gekreuzten Spitzhacken (adaptives Symbol).
+     Core-Zeichen: tmmac-core/logos official/core-blockchain/brand-kit/mark-coregreen.svg, Pfad unveraendert, nur skaliert.
+     Spitzhacken: eigene Zeichnung (Entwurf 1, 17.10.2026), hinter der Muenze per Clip-Ring (Radius 20) freigestellt.
+     Gilt bis zur Community-Abstimmung; vor oeffentlichem Release Core-OK noetig (Core-Zeichen wirkt offiziell). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <group android:scaleX="0.98" android:scaleY="0.98" android:translateX="1.08" android:translateY="2.58">
+        <group>
+            <clip-path android:pathData="M0,0 H108 V108 H0 Z M54,34 A20,20 0 0 0 54,74 A20,20 0 0 0 54,34 Z"/>
+            <group android:translateX="54" android:translateY="54" android:rotation="-45">
+                <path android:fillColor="#7F8883" android:pathData="M-2.3,-25.7 A2.3,2.3 0 0 1 2.3,-25.7 L2.3,28.7 A2.3,2.3 0 0 1 -2.3,28.7 Z"/>
+                <path android:fillColor="#E9ECEA" android:pathData="M-15,-21.05 Q0,-39.05 15,-21.05 Q0,-29.81 -15,-21.05 Z"/>
+                <path android:fillColor="#E9ECEA" android:pathData="M-2,-31 L2,-31 Q3.6,-31 3.6,-29.4 L3.6,-23.6 Q3.6,-22 2,-22 L-2,-22 Q-3.6,-22 -3.6,-23.6 L-3.6,-29.4 Q-3.6,-31 -2,-31 Z"/>
+            </group>
+            <group android:translateX="54" android:translateY="54" android:rotation="45">
+                <path android:fillColor="#7F8883" android:pathData="M-2.3,-25.7 A2.3,2.3 0 0 1 2.3,-25.7 L2.3,28.7 A2.3,2.3 0 0 1 -2.3,28.7 Z"/>
+                <path android:fillColor="#E9ECEA" android:pathData="M-15,-21.05 Q0,-39.05 15,-21.05 Q0,-29.81 -15,-21.05 Z"/>
+                <path android:fillColor="#E9ECEA" android:pathData="M-2,-31 L2,-31 Q3.6,-31 3.6,-29.4 L3.6,-23.6 Q3.6,-22 2,-22 L-2,-22 Q-3.6,-22 -3.6,-23.6 L-3.6,-29.4 Q-3.6,-31 -2,-31 Z"/>
+            </group>
+        </group>
+        <group android:translateX="35.8221" android:translateY="35.8221" android:scaleX="0.036356" android:scaleY="0.036356">
+            <group android:translateX="967.485" android:translateY="500.001" android:scaleX="0.721425" android:scaleY="0.721425">
+                <path android:fillColor="#46B549" android:pathData="M0,-0.004C0,-59.65 -48.353,-108.004 -108,-108.004C-167.646,-108.004 -216,-59.65 -216,-0.004L-216.021,-0.004L-216.021,-0.002L-216.004,-0.002C-216.004,0.892 -216.016,1.785 -216.021,2.679L-216.021,3.637L-216.027,3.637C-217.983,240.551 -410.629,431.998 -648.004,431.998C-886.584,431.998 -1080,238.588 -1080,-0.002C-1080,-238.592 -886.584,-432.002 -648.004,-432.002C-598.904,-432.002 -551.723,-423.79 -507.746,-408.695C-463.98,-394.903 -432.242,-353.997 -432.242,-305.674C-432.242,-246.027 -480.596,-197.674 -540.242,-197.674C-552.842,-197.674 -564.934,-199.828 -576.177,-203.794L-576.185,-203.794C-598.655,-211.704 -622.825,-216.002 -648.004,-216.002C-767.294,-216.002 -864.004,-119.292 -864.004,-0.002C-864.004,119.288 -767.294,215.998 -648.004,215.998C-528.705,215.998 -432.004,119.288 -432.004,-0.002L-432,-0.002L-432,-0.004C-432,-178.947 -286.938,-324.009 -107.995,-324.009C-100.695,-324.009 -93.458,-323.743 -86.279,-323.268C-162.457,-455.354 -283.878,-558.057 -429.385,-610.192C-497.685,-634.672 -571.285,-648.002 -648.004,-648.002C-1005.88,-648.002 -1296,-357.882 -1296,-0.002C-1296,357.878 -1005.88,647.998 -648.004,647.998C-290.358,647.998 -0.404,358.272 -0.009,0.728C-0.007,0.484 0,0.241 0,-0.004"/>
+            </group>
+        </group>
+    </group>
+</vector>

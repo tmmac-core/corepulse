@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nur Debug-Build: Kurztest, ob CorePass per type=app-link in die App zurueckspringt.
+     Kommt nie in einen Release (eigener Source-Set). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name=".CorePassSpikeActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="coreminer" android:host="corepass" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

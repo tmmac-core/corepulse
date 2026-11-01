@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nederlands. Toon: eenvoudige woorden, informeel "je" (zoals "du" in het Duits).
+    Begriffe: telefoon (Handy), accu (Akku), pool, share(s), minen, Steunaandeel (Support-Anteil).
+    Lateinisch/unveraendert: XCB, Core, CorePass, Catch That Rabbit, TMMAC, H/s, PPLNS.
+    Zahlen: Komma als Dezimalzeichen kommt aus der Locale; Prozent ohne Leerzeichen ("0,42%").
+    Maschinell entworfen – vor breiter Veroeffentlichung von Muttersprachlern pruefen lassen.
+-->
+<resources>
+
+    <!-- ===== Algemeen ===== -->
+    <string name="value_percent">%1$d%%</string>
+    <string name="value_celsius">%1$.0f °C</string>
+    <string name="duration_approx">~%1$s</string>
+    <string name="duration_seconds">%1$d s</string>
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours">%1$d u</string>
+    <string name="ago_just_now">zojuist</string>
+    <string name="ago_minutes">%1$d min geleden</string>
+    <string name="ago_hours_minutes">%1$d u %2$d min geleden</string>
+    <string name="status_stopping">Wordt gestopt …</string>
+    <string name="status_preparing">Wordt voorbereid …</string>
+    <string name="support_text" formatted="false">0,42% van de rekentijd ondersteunt de verdere ontwikkeling (TMMAC): 25 seconden elke 100 minuten.</string>
+
+    <!-- ===== Startscherm: adres ===== -->
+    <string name="setup_title">XCB minen\nmet je\ntelefoon.</string>
+    <string name="setup_intro">XCB (Core Coin) is de munt van het Core-netwerk. Je telefoon rekent mee in de pool Catch That Rabbit: daar rekenen veel apparaten samen en delen ze de beloning. De pool betaalt rechtstreeks naar je adres uit, niet via deze app. Geen account, geen tracking.</string>
+    <string name="setup_pool_link">Bekijken in de pool</string>
+    <string name="address_kick">Adres</string>
+    <string name="address_paste">Plakken</string>
+    <string name="address_valid_payout_to">Geldig. Uitbetalingen gaan naar</string>
+    <string name="address_valid_payout_to_address">Geldig. Uitbetalingen gaan naar:\n%1$s</string>
+    <string name="address_hint_empty">Kopieer het uit CorePass of een andere wallet (app voor je XCB)</string>
+    <string name="address_hint_testnet">Dit is een testnetadres. Om te minen heb je een adres nodig dat met cb begint.</string>
+    <string name="address_hint_wrong_checksum">Er klopt een teken niet. Kopieer het adres in plaats van het over te typen.</string>
+    <string name="address_hint_wrong_format">Dit is geen Core-adres. Het begint met cb en heeft 44 tekens.</string>
+    <string name="address_scan_button">QR-code scannen</string>
+    <string name="address_scan_privacy">De camera leest alleen de QR-code. Er wordt niets opgeslagen.</string>
+    <string name="address_none_title">Nog geen Core-adres?</string>
+    <string name="address_none_body">Je krijgt er een met de app CorePass. Stel die in, kopieer daar je adres (begint met cb) en plak het hier – of scan de QR-code.</string>
+    <string name="address_corepass_store_link">CorePass in Google Play</string>
+
+    <!-- ===== Startscherm: QR-scan ===== -->
+    <string name="scan_prompt">QR-code met je Core-adres</string>
+    <string name="scan_no_camera_permission">Zonder cameratoestemming kan er niet gescand worden. Kopieer en plak het adres.</string>
+    <string name="scan_multiple_addresses">Deze QR-code bevat meerdere adressen. Kopieer en plak het juiste adres.</string>
+    <string name="scan_no_address">Er staat geen Core-adres in deze QR-code.</string>
+
+    <!-- ===== Startscherm: naam in de pool ===== -->
+    <string name="worker_kick">Naam in de pool</string>
+    <string name="worker_edit">Aanpassen</string>
+    <string name="worker_save">Opslaan</string>
+    <string name="worker_public_warning">Openbaar zichtbaar in de poolstatistieken – gebruik niet je echte naam</string>
+    <string name="worker_invalid">Minstens één letter of cijfer</string>
+    <string name="worker_explainer">Zo heet je telefoon in de poolstatistieken. Zo zijn meerdere apparaten uit elkaar te houden.</string>
+
+    <!-- ===== Startscherm: vermogen en schakelaars ===== -->
+    <string name="power_kick">Vermogen</string>
+    <string name="power_option_all">Alle</string>
+    <plurals name="power_option_cores">
+        <item quantity="one">%1$d van %2$d kern</item>
+        <item quantity="other">%1$d van %2$d kernen</item>
+    </plurals>
+    <string name="power_hint">Meer vermogen betekent meer warmte en meer accuverbruik. Laad het liefst op via een lader in het stopcontact, want een USB-poort van een computer levert vaak te weinig stroom. Wordt de accu te warm, dan pauzeert de app vanzelf.</string>
+    <string name="toggle_screen_title">Scherm aan laten</string>
+    <string name="toggle_screen_detail">Het scherm blijft gedimd aan zolang de app open is. Laat de app daarvoor op de voorgrond. Zonder dit remt Android het minen op veel telefoons flink af.</string>
+
+    <!-- ===== Start- / stopknop ===== -->
+    <string name="start_reason_no_address">Voer eerst een geldig Core-adres in</string>
+    <string name="start_reason_no_name">Voer een naam voor de pool in</string>
+    <string name="start_reason_notifications">Android vraagt zo of de app meldingen mag tonen. Zo zie je dat het minen loopt en kun je het altijd stoppen.</string>
+    <string name="start_button">Minen starten</string>
+    <string name="start_footer" formatted="false">Pool Catch That Rabbit · geen account · 0,42% steunaandeel</string>
+    <string name="stop_button">Stoppen</string>
+
+    <!-- ===== Minen bezig ===== -->
+    <string name="running_kick_preparing">Voorbereiding</string>
+    <string name="running_preparing">Wordt voorbereid … de eerste start duurt tot een minuut.</string>
+    <string name="running_kick_stopping">Stopt</string>
+    <string name="running_kick_cooling">Pauze · afkoelen</string>
+    <string name="running_cooling">Pauze tot de accu is afgekoeld. Daarna gaat het vanzelf verder.</string>
+    <string name="running_kick_support">Steunaandeel</string>
+    <string name="running_support">Steunaandeel loopt: 25 seconden voor de verdere ontwikkeling (TMMAC).</string>
+    <string name="running_kick_waiting">Wacht op pool</string>
+    <string name="running_waiting">Geen verbinding met de pool. Controleer wifi of mobiele data. Zodra het netwerk er weer is, gaat het minen vanzelf verder.</string>
+    <string name="running_kick_mining">XCB minen · Server %1$s</string>
+    <string name="running_warm">Draait. De accu is warm met %1$.0f °C – de app let op en pauzeert vanaf 50 °C vanzelf.</string>
+    <string name="running_hot">Draait. De accu is erg warm met %1$.0f °C – de app let op en pauzeert vanaf 50 °C vanzelf.</string>
+    <string name="running_ok">Draait. Alles is in orde.</string>
+    <string name="running_elapsed_a11y">Looptijd %1$s</string>
+    <string name="running_rate_a11y">%1$s hashes per seconde</string>
+    <string name="running_not_computing_a11y">rekent nu niet</string>
+    <string name="running_rate_detail">Hashes per seconde · H/s</string>
+    <string name="running_rate_unit">Rekenkracht</string>
+    <string name="running_curve_filling">Grafiek vult zich …</string>
+    <string name="running_curve_start">10 min geleden</string>
+    <string name="running_curve_now">nu</string>
+    <string name="figure_shares">Shares</string>
+    <string name="figure_battery">Accu</string>
+    <string name="figure_temp">Temp</string>
+    <plurals name="share_note_rejected">
+        <item quantity="one">%1$d afgewezen</item>
+        <item quantity="other">%1$d afgewezen</item>
+    </plurals>
+    <string name="share_note_last">laatste %1$s</string>
+    <string name="share_note_first">eerste over %1$s</string>
+    <string name="battery_note_charging">laadt</string>
+    <string name="battery_note_drain">−%1$.0f%% per u</string>
+    <string name="temp_normal">normaal</string>
+    <string name="temp_warm">warm</string>
+    <string name="temp_hot">erg warm</string>
+    <string name="running_share_interval">Bij deze rekenkracht komt er gemiddeld elke %1$s een share. Het is toeval: soms sneller, soms langzamer.</string>
+    <string name="running_share_explainer">Een share is een rekenresultaat dat de pool erkent als bewijs van je werk. Je deel van de beloning hangt daarvan af.</string>
+    <string name="running_worker_name">Naam in de pool: %1$s</string>
+    <string name="how_it_works_show">Zo werkt het</string>
+    <string name="running_data_since_start">Data sinds start: %1$s · mobiele data werkt ook</string>
+
+    <!-- ===== Opbrengst (poolstatistieken) ===== -->
+    <string name="earnings_kick">Opbrengst · schatting</string>
+    <string name="earnings_unreachable">Poolstatistieken nu niet bereikbaar. Probeert het zo opnieuw.</string>
+    <string name="earnings_loading">Poolstatistieken laden …</string>
+    <string name="earnings_per_day_a11y">ongeveer %1$s XCB per dag</string>
+    <string name="earnings_no_estimate_a11y">nog geen schatting</string>
+    <string name="earnings_per_day_unit">XCB per dag</string>
+    <string name="earnings_basis_with_support">Bij je huidige rekenkracht, na %1$.1f%% poolkosten en steunaandeel. Een gemiddelde: de echte opbrengst schommelt en is niet gegarandeerd.</string>
+    <string name="earnings_in_pool">In de pool</string>
+    <string name="earnings_unavailable">nu niet beschikbaar</string>
+    <string name="earnings_unconfirmed">+ %1$s onbevestigd</string>
+    <string name="earnings_not_paid_yet">XCB, nog niet uitbetaald</string>
+    <string name="earnings_payout">Uitbetaling</string>
+    <string name="earnings_payout_from">vanaf %1$s</string>
+    <string name="earnings_payout_interval">XCB, uitbetaald elke %1$s</string>
+    <string name="earnings_pool_share">Je deel van de pool: %1$s H/s van %2$s = %3$.3f%%</string>
+    <string name="earnings_pplns_explainer">Zo wordt verdeeld: vindt de pool een blok, dan verdeelt hij de beloning volgens de laatst ingediende shares (PPLNS). Gemiddeld komt je deel overeen met jouw aandeel in de rekenkracht van de pool. Zodra je saldo de drempel bereikt, betaalt de pool rechtstreeks uit naar je adres.</string>
+    <string name="region_incomplete">Niet alle poolregio\'s bereikbaar – totaal zonder de ontbrekende regio.</string>
+    <string name="region_split">Verdeeld over %1$s. Elke regio van de pool betaalt apart uit zodra daar %2$s XCB is bereikt. Een kleiner restant blijft in zijn regio tot je daar weer mint.</string>
+    <string name="region_short">%1$s · uitbetaling per regio vanaf %2$s XCB</string>
+    <string name="balance_payout_line">Uitbetaling vanaf %1$s XCB rechtstreeks naar je adres · tot nu toe uitbetaald %2$s XCB</string>
+
+    <!-- ===== Gedimd scherm ===== -->
+    <string name="dimmed_wake_action">Helderder maken</string>
+    <string name="dimmed_state_a11y">Minen loopt, scherm gedimd</string>
+    <string name="dimmed_cooling">Koelt af</string>
+    <plurals name="dimmed_status">
+        <item quantity="one">%1$s · %2$d share</item>
+        <item quantity="other">%1$s · %2$d shares</item>
+    </plurals>
+    <string name="dimmed_hint">XCB minen · Tik om op te lichten</string>
+
+    <!-- ===== Details en log ===== -->
+    <string name="details_show">Details en log</string>
+    <string name="details_trail_title">Blokspoor · gebeurtenissen van de pool</string>
+    <string name="details_trail_legend">Korte streep = nieuwe job van de pool · hoge streep = share geaccepteerd · grijs = steunaandeel</string>
+    <string name="details_stats">Share-difficulty: %1$.0f  ·  Thermal: %2$s\n%3$s</string>
+    <string name="details_copy_log">Log kopiëren</string>
+    <string name="details_log_clip_label">Mining-log</string>
+
+    <!-- ===== Over deze app ===== -->
+    <string name="about_title">Over deze app</string>
+    <string name="about_back">← Terug</string>
+    <string name="about_version">Versie %1$s</string>
+    <string name="about_publisher_title">Uitgever</string>
+    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. We leggen het Core-ecosysteem uit en bouwen er tools voor. Geen account, geen tracking. 0,42% van de rekentijd ondersteunt de verdere ontwikkeling.</string>
+    <string name="about_legal_imprint">Colofon</string>
+    <string name="about_legal_privacy">Privacyverklaring</string>
+    <string name="about_feedback">Feedback &amp; fouten melden</string>
+    <!-- %1$s = Knopf "Details und Log", %2$s = Knopf "Log kopieren" -->
+    <string name="about_feedback_hint">Bij een fout helpt het log: „%1$s” → „%2$s”, plak het daarna in het formulier.</string>
+    <string name="about_xcb_title">Wat is XCB?</string>
+    <string name="about_xcb_body">XCB (Core Coin) is de munt van het Core-netwerk. Nieuwe XCB ontstaan door minen: computers lossen rekenopgaven op met de methode RandomY, die voor gewone processors is gemaakt – daarom kan ook een telefoon meerekenen. Hoe meer mensen minen, hoe breder het netwerk verspreid is.</string>
+    <string name="about_connections_title">Wat de app verstuurt</string>
+    <string name="about_connection_pool">Naar de pool Catch That Rabbit: je adres, de naam in de pool, je rekenkracht en je rekenresultaten. Onversleuteld, omdat de pool niets anders aanbiedt.</string>
+    <string name="about_connection_stats">Voor opbrengst en saldo vraagt de app de statistieken van dezelfde pool op (versleuteld).</string>
+    <string name="about_connection_support">Voor het steunaandeel rekent de app via een tweede verbinding voor TMMAC, 25 seconden elke 100 minuten.</string>
+    <string name="about_connections_none">Verder niets: geen analyse, geen reclame, geen cloud. Je gegevens blijven op je telefoon.</string>
+    <string name="about_license_title">Licentie</string>
+    <string name="about_license_body">Opensourcesoftware (GPL-3.0). Wie erop voortbouwt en het verspreidt, moet zijn broncode openbaar maken en „Gebaseerd op CorePulse van TMMAC” tonen.</string>
+    <string name="about_source">Broncode van deze versie</string>
+    <string name="about_license_notice">Licentie en aanvullingen (NOTICE)</string>
+    <string name="about_license_gpl">GPL-3.0 (volledig)</string>
+    <string name="about_oss_title">Alle licentieteksten</string>
+    <string name="about_license_missing">Licentietekst ontbreekt.</string>
+
+    <!-- ===== Toestemming voor de eerste keer minen (Consent.VERSION / ConsentTest) ===== -->
+    <string name="consent_kick">Voor de start</string>
+    <string name="consent_title">Voordat je begint</string>
+    <string name="consent_beta_head">Bètasoftware</string>
+    <string name="consent_beta">CorePulse is bètasoftware van Tell Me More About Core. De licentie- en aansprakelijkheidsvoorwaarden zijn van toepassing.</string>
+    <string name="consent_load_head">Accu en warmte</string>
+    <string name="consent_load">Bij het minen rekent je telefoon met het gekozen vermogen, bij „Alle” op volle kracht. De telefoon wordt warm, de accu wordt zwaarder belast en loopt zonder lader sneller leeg. Wordt de accu te warm, dan pauzeert de app vanzelf. De stroom om op te laden betaal je zelf.</string>
+    <string name="consent_share_head" formatted="false">Steunaandeel 0,42%</string>
+    <string name="consent_share" formatted="false">0,42% van de rekentijd ondersteunt de verdere ontwikkeling (TMMAC). Dit steunaandeel is vast ingebouwd en kan niet worden uitgeschakeld.</string>
+    <string name="consent_earn_head">Geen gegarandeerde opbrengst</string>
+    <string name="consent_earn">Opbrengsten schommelen en zijn niet gegarandeerd. Met minen verkregen XCB kunnen belastbaar zijn.</string>
+    <string name="consent_pool_head">Wat de pool ziet</string>
+    <string name="consent_pool">Bij het minen maakt de app verbinding met de pool Catch That Rabbit. Die ziet je adres, de naam in de pool (bijv. phone-7k2f), je rekenkracht en je IP-adres. De naam en de rekenkracht kan iedereen zien die je adres opzoekt in de poolstatistieken.</string>
+    <string name="consent_notice">Licentie en aansprakelijkheid (NOTICE)</string>
+    <string name="consent_agree">Ik heb de informatie gelezen en ga akkoord.</string>
+    <string name="consent_need">Zet het vinkje om te starten.</string>
+
+    <!-- ===== Meldingen ===== -->
+    <string name="channel_mining">Minen</string>
+    <string name="channel_alerts">Waarschuwingen</string>
+    <string name="notif_title">XCB minen</string>
+    <string name="notif_action_stop">Stoppen</string>
+    <string name="notif_cooling">Koelt af – gaat daarna vanzelf verder</string>
+    <string name="notif_support">Steunaandeel loopt (TMMAC) · %1$s H/s</string>
+    <plurals name="notif_status">
+        <item quantity="one">%1$s H/s · %2$d share</item>
+        <item quantity="other">%1$s H/s · %2$d shares</item>
+    </plurals>
+    <string name="alert_heat_title">Afkoelpauze</string>
+    <string name="alert_heat_text">De accu is warm geworden. Het minen pauzeert tot hij is afgekoeld en gaat daarna vanzelf verder.</string>
+    <string name="alert_stopped_title">Minen gestopt</string>
+
+    <!-- ===== Stopredenen ===== -->
+    <string name="notice_error">Minen is gestopt door een fout. Zie „Details en log”.</string>
+    <string name="notice_low_memory">Te weinig vrij werkgeheugen (minstens %1$d MB). Sluit andere apps en start het minen opnieuw.</string>
+    <string name="notice_start_failed">Starten is niet gelukt. Sluit andere apps en start opnieuw. Technische reden: %1$s</string>
+    <string name="notice_login_rejected">De pool accepteert dit adres niet. Controleer het adres (kopieer het liefst uit CorePass).</string>
+    <string name="notice_low_battery">Accu op %1$d%%. Minen gestopt zodat de accu niet leeg raakt. Met de lader aangesloten kun je meteen verder minen.</string>
+    <string name="notice_too_hot">Minen gestopt omdat je telefoon te warm werd (accu %1$s °C). Laat hem afkoelen en start dan opnieuw, liefst met minder vermogen.</string>
+    <string name="notice_no_temperature">Op deze telefoon kan de temperatuur niet worden gemeten. Zonder meetwaarde kan de app niet op warmte letten, daarom mint hij hier niet.</string>
+    <string name="notice_not_cooling">Je telefoon is in 15 minuten pauze niet afgekoeld, daarom is het minen gestopt. Leg hem op een koelere plek of haal hem van de lader en start dan opnieuw.</string>
+    <string name="notice_no_workers">Minen kon op dit apparaat niet rekenen. Zie „Details en log”.</string>
+
+    <!-- ===== Samenvatting na het stoppen ===== -->
+    <string name="summary_under_minute">minder dan 1 min</string>
+    <plurals name="summary_shares">
+        <item quantity="one">%1$d share geaccepteerd</item>
+        <item quantity="other">%1$d shares geaccepteerd</item>
+    </plurals>
+    <string name="summary_max_temp">max. %1$.0f °C</string>
+    <string name="summary_stopped">Gestopt na %1$s · %2$s</string>
+    <string name="summary_stopped_with_temp">Gestopt na %1$s · %2$s · %3$s</string>
+
+    <!-- ===== In-app-log. Je LogKey ein Text (miner-core LogEvent.kt). ===== -->
+    <string name="log_share_dropped_no_pool">Share verworpen: geen poolverbinding (nonce 0x%1$016x)</string>
+    <string name="log_server_choice">Serverkeuze: %1$s</string>
+    <string name="log_server_choice_home">Serverkeuze: %1$s, thuis %2$s</string>
+    <string name="log_back_to_home">Terug naar thuisserver: %1$s %2$d ms (in plaats van %3$s; elke regio heeft een eigen saldo)</string>
+    <string name="log_shares_unanswered">Shares zonder antwoord van de pool: %1$d (verbinding weg)</string>
+    <string name="log_unreadable_pool_message">Onleesbaar poolbericht: %1$s</string>
+    <string name="log_pool_error">Poolfout (id=%1$s): %2$s</string>
+    <string name="log_job_unreadable">Job niet leesbaar: %1$s</string>
+    <string name="log_support_failed">Steunaandeel beëindigd: %1$s %2$s</string>
+    <string name="log_support_login_rejected">Steunaandeel: pool weigert login (%1$s)</string>
+    <string name="log_support_skipped">Steunaandeel vervalt deze keer: pool niet bereikbaar</string>
+    <string name="log_support_running">Steunaandeel loopt (%1$d s)</string>
+    <string name="log_support_done">Steunaandeel beëindigd, hashes voor TMMAC: %1$d</string>
+    <string name="log_randomy_ready">RandomY klaar in %1$.1f s, JIT=%2$s, FullMem=%3$s, HardAES=%4$s, zelftest OK</string>
+    <string name="log_selftest_retry_without_jit">%1$s → nieuwe poging zonder JIT</string>
+    <string name="log_stop_thread_still_running">Stop: een thread rekent nog, RandomY-geheugen wordt daarna vrijgegeven</string>
+    <string name="log_thread_no_vm">Thread %1$d: VM kon niet worden aangemaakt</string>
+    <string name="log_thread_selftest_failed">Thread %1$d: %2$s → thread rekent niet</string>
+    <string name="log_thread_ended">Thread %1$d beëindigd: %2$s %3$s</string>
+    <string name="log_test_no_heat_pause">TEST: warmtepauze en veiligheidsstop van de app uit, alleen Android beschermt</string>
+    <string name="log_error">Fout: %1$s %2$s</string>
+    <string name="log_starting">Start: worker %1$s, threads: %2$d, %3$s %4$s, Android %5$s, vrij RAM %6$d van %7$d MiB</string>
+    <string name="log_share_found">Share gevonden (nonce %1$016x)</string>
+    <string name="log_start_failed">Starten mislukt: %1$s</string>
+    <string name="log_support_share_accepted">Steunaandeel-share geaccepteerd</string>
+    <string name="log_support_share_rejected">Steunaandeel-share afgewezen: %1$s</string>
+    <string name="log_support_on">Steunaandeel aan (%1$.2f%%)</string>
+    <string name="log_connected">Aangemeld bij %1$s</string>
+    <string name="log_disconnected">Verbinding verbroken: %1$s</string>
+    <string name="log_login_rejected">Login geweigerd: %1$s</string>
+    <string name="log_share_accepted">Share geaccepteerd</string>
+    <string name="log_share_rejected">Share afgewezen: %1$s</string>
+    <string name="log_measurement">Meting %1$.0f H/s, threads %2$d, accu %3$.1f °C, thermal %4$s</string>
+    <string name="log_support_balance">Steunbalans: TMMAC-hashes %1$d van %2$d (%3$.3f%%), tijd %4$.0f van %5$.0f s (%6$.3f%%)</string>
+    <string name="log_heat_pause">Warmtepauze (accu %1$.1f °C, thermal %2$s)</string>
+    <string name="log_heat_resume">Verder na %1$.0f s warmtepauze</string>
+    <string name="log_stopped_with_notice">Gestopt: %1$s</string>
+    <string name="log_stopped">Gestopt</string>
+    <string name="log_pool_stats_failed">Poolstatistieken niet beschikbaar: %1$s</string>
+    <string name="glossary_kick">Begrippen</string>
+    <string name="glossary_rate">Hoeveel rekenpogingen (hashes) je telefoon per seconde doet. Meer rekenkracht betekent gemiddeld meer shares en meer opbrengst.</string>
+    <string name="glossary_pool_term">Pool</string>
+    <string name="glossary_pool">Veel apparaten rekenen samen en verdelen de beloning naar hun shares. Hier is dat de pool Catch That Rabbit (CTR).</string>
+    <string name="glossary_unconfirmed_term">Onbevestigd</string>
+    <string name="glossary_unconfirmed">Opbrengst uit net gevonden blokken. Zodra het netwerk het blok heeft bevestigd, komt die bij je saldo.</string>
+    <string name="glossary_regions_term">Regio\'s</string>
+    <string name="glossary_regions">CTR heeft servers in vier regio\'s: DE (Duitsland), FI (Finland), SG (Singapore) en HK (Hongkong). De app kiest de server automatisch. Elke regio telt je saldo apart en betaalt het apart uit.</string>
+    <!-- Sprachwahl (Weltkugel oben rechts) -->
+    <string name="language_title">Taal</string>
+    <string name="language_system">Zoals de telefoon (%1$s)</string>
+    <string name="language_a11y">Taal wijzigen, nu %1$s</string>
+    <!-- Zustand aufklappbarer Zeilen fuer TalkBack -->
+    <string name="state_expanded">uitgeklapt</string>
+    <string name="state_collapsed">ingeklapt</string>
+    <string name="running_curve_a11y">Verloop van de laatste minuten: laagste %1$s, hoogste %2$s, nu %3$s hashes per seconde</string>
+    <!-- Design-Runde 30.10.: Startschritte, Puls-Spur, Quittung, Wiederkehrer -->
+    <string name="start_step_memory">Geheugen controleren</string>
+    <string name="start_step_build">Ongeveer 260 MB werkgeheugen aanleggen en testen</string>
+    <string name="start_step_server">Snelste server zoeken</string>
+    <string name="start_step_job">Eerste job van de pool ophalen</string>
+    <string name="start_step_a11y">Stap %1$d van %2$d: %3$s</string>
+    <string name="running_trail_a11y">Jobs van de pool: %1$d · shares geaccepteerd: %2$d</string>
+    <string name="duration_hours_minutes">%1$d u %2$02d min</string>
+    <string name="receipt_kick">Laatste run</string>
+    <string name="receipt_duration">Duur</string>
+    <string name="receipt_hashes">Berekende hashes</string>
+    <string name="receipt_max_temp">Max. temp</string>
+    <string name="receipt_estimate">Jouw aandeel</string>
+    <string name="receipt_estimate_note">schatting, niet gegarandeerd</string>
+    <string name="address_compact">Uitbetaling naar %1$s</string>
+    <string name="address_compact_a11y">Geldig adres. Uitbetaling naar %1$s</string>
+    <string name="setup_intro_short">Alles is ingesteld. Druk op Start – de pool betaalt rechtstreeks naar je adres.</string>
+</resources>

@@ -1,0 +1,5 @@
+/* Nur die JNI-Einstiege bleiben sichtbar; RandomY und SHA3 sind intern. */
+{
+  global: Java_*;
+  local: *;
+};

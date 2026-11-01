@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    English = default and fallback for every phone language other than German, Japanese, Dutch and Romanian.
+    Tone like the German original: plain words for non-experts, direct "you".
+    Unchanged in every language: XCB, Core, CorePass, Catch That Rabbit, TMMAC, H/s, PPLNS.
+    The developer log (Details and log) stays German on purpose: it comes partly from miner-core
+    (no Android resources) and evaluation scripts grep for its wording.
+-->
+<resources>
+    <!-- Working title, final name comes later -->
+    <string name="app_name" translatable="false">CorePulse</string>
+
+    <!-- ===== Common: numbers with units, durations, "… ago" ===== -->
+    <string name="value_percent">%1$d%%</string>
+    <string name="value_celsius">%1$.0f °C</string>
+    <!-- Rough duration: "~6 min" -->
+    <string name="duration_approx">~%1$s</string>
+    <string name="duration_seconds">%1$d s</string>
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours">%1$d h</string>
+    <string name="ago_just_now">just now</string>
+    <string name="ago_minutes">%1$d min ago</string>
+    <string name="ago_hours_minutes">%1$d h %2$d min ago</string>
+    <!-- Mining in progress, shared by button and status line -->
+    <string name="status_stopping">Stopping …</string>
+    <string name="status_preparing">Getting ready …</string>
+    <!-- Support time; 0.42% = 25 s every 100 min -->
+    <string name="support_text" formatted="false">0.42% of the computing time supports further development (TMMAC): 25 seconds every 100 minutes.</string>
+
+    <!-- ===== Start screen: address ===== -->
+    <string name="setup_title">Your phone\nmines XCB.</string>
+    <string name="setup_intro">XCB (Core Coin) is the currency of the Core network. Your phone joins the pool Catch That Rabbit, where many devices compute together and share the reward. The pool pays straight to your address, not through this app. No account, no tracking.</string>
+    <string name="setup_pool_link">Check in the pool</string>
+    <string name="address_kick">Address</string>
+    <string name="address_paste">Paste</string>
+    <string name="address_valid_payout_to">Valid. Payouts go to</string>
+    <!-- %1$s = address in groups of 4 -->
+    <string name="address_valid_payout_to_address">Valid. Payouts go to:\n%1$s</string>
+    <string name="address_hint_empty">Copy it from CorePass or another wallet (app for your XCB)</string>
+    <string name="address_hint_testnet">This is a testnet address. To mine, you need an address that starts with cb.</string>
+    <string name="address_hint_wrong_checksum">One character is wrong. Please copy the address instead of typing it.</string>
+    <string name="address_hint_wrong_format">This is not a Core address. It starts with cb and has 44 characters.</string>
+    <string name="address_scan_button">Scan QR code</string>
+    <string name="address_scan_privacy">The camera only reads the QR code. Nothing is saved.</string>
+    <string name="address_none_title">No Core address yet?</string>
+    <string name="address_none_body">You get one with the CorePass app. Set it up, copy your address there (it starts with cb) and paste it here – or scan its QR code.</string>
+    <string name="address_corepass_store_link">CorePass on Google Play</string>
+
+    <!-- ===== Start screen: QR scan ===== -->
+    <string name="scan_prompt">QR code with your Core address</string>
+    <string name="scan_no_camera_permission">Scanning needs camera access. Copy and paste the address instead.</string>
+    <string name="scan_multiple_addresses">This QR code contains several addresses. Please copy and paste the right one.</string>
+    <string name="scan_no_address">There is no Core address in this QR code.</string>
+
+    <!-- ===== Start screen: name in the pool ===== -->
+    <string name="worker_kick">Name in the pool</string>
+    <string name="worker_edit">Change</string>
+    <string name="worker_save">Save</string>
+    <string name="worker_public_warning">Publicly visible in the pool statistics – don\'t use your real name</string>
+    <string name="worker_invalid">At least one letter or digit</string>
+    <string name="worker_explainer">This is your phone\'s name in the pool statistics. It tells several devices apart.</string>
+
+    <!-- ===== Start screen: power and switches ===== -->
+    <string name="power_kick">Power</string>
+    <string name="power_option_all">All</string>
+    <!-- %1$d = cores used, %2$d = cores in total (quantity) -->
+    <plurals name="power_option_cores">
+        <item quantity="one">%1$d of %2$d core</item>
+        <item quantity="other">%1$d of %2$d cores</item>
+    </plurals>
+    <string name="power_hint">More power means more heat and more battery use. Best to charge from a wall charger, because a computer USB port often supplies too little power. If the battery gets too warm, the app pauses by itself.</string>
+    <string name="toggle_screen_title">Keep screen on</string>
+    <string name="toggle_screen_detail">The screen stays on, dimmed, while the app is open. Keep the app in front for this. Without this, Android slows mining down a lot on many phones.</string>
+
+    <!-- ===== Start / stop button ===== -->
+    <string name="start_reason_no_address">First enter a valid Core address</string>
+    <string name="start_reason_no_name">Enter a name for the pool</string>
+    <string name="start_reason_notifications">Android will ask next whether the app may show notifications. That way you see that mining is running and can stop it any time.</string>
+    <string name="start_button">Start mining</string>
+    <string name="start_footer" formatted="false">Pool Catch That Rabbit · no account · 0.42% support time</string>
+    <string name="stop_button">Stop</string>
+
+    <!-- ===== Mining in progress ===== -->
+    <string name="running_kick_preparing">Getting ready</string>
+    <string name="running_preparing">Getting ready … the first start takes up to a minute.</string>
+    <string name="running_kick_stopping">Stopping</string>
+    <string name="running_kick_cooling">Paused · cooling down</string>
+    <string name="running_cooling">Paused until the battery has cooled down. Then it continues by itself.</string>
+    <string name="running_kick_support">Support time</string>
+    <string name="running_support">Support time running: 25 seconds for further development (TMMAC).</string>
+    <string name="running_kick_waiting">Waiting for pool</string>
+    <string name="running_waiting">No connection to the pool. Check Wi-Fi or mobile data. Mining continues by itself as soon as the network is back.</string>
+    <!-- %1$s = server region (DE, FI, SG, HK) -->
+    <string name="running_kick_mining">Mining XCB · Server %1$s</string>
+    <string name="running_warm">Running. The battery is warm at %1$.0f °C – the app keeps watch and pauses by itself at 50 °C.</string>
+    <string name="running_hot">Running. The battery is very warm at %1$.0f °C – the app keeps watch and pauses by itself at 50 °C.</string>
+    <string name="running_ok">Running. Everything is in the normal range.</string>
+    <string name="running_elapsed_a11y">Running for %1$s</string>
+    <string name="running_rate_a11y">%1$s hashes per second</string>
+    <string name="running_not_computing_a11y">not computing right now</string>
+    <string name="running_rate_detail">Hashes per second · H/s</string>
+    <string name="running_rate_unit">Computing power</string>
+    <string name="running_curve_filling">Chart is filling up …</string>
+    <string name="running_curve_start">10 min ago</string>
+    <string name="running_curve_now">now</string>
+    <string name="figure_shares">Shares</string>
+    <string name="figure_battery">Battery</string>
+    <string name="figure_temp">Temp</string>
+    <plurals name="share_note_rejected">
+        <item quantity="one">%1$d rejected</item>
+        <item quantity="other">%1$d rejected</item>
+    </plurals>
+    <!-- %1$s = "3 min ago" / "just now" -->
+    <string name="share_note_last">last %1$s</string>
+    <!-- %1$s = "~6 min" -->
+    <string name="share_note_first">first in %1$s</string>
+    <string name="battery_note_charging">charging</string>
+    <string name="battery_note_drain">−%1$.0f%% per h</string>
+    <string name="temp_normal">normal</string>
+    <string name="temp_warm">warm</string>
+    <string name="temp_hot">very warm</string>
+    <string name="running_share_interval">At this computing power, you get a share every %1$s on average. It\'s random: sometimes faster, sometimes slower.</string>
+    <string name="running_share_explainer">A share is a computing result that the pool accepts as proof of your work. Your part of the reward depends on it.</string>
+    <string name="running_worker_name">Name in the pool: %1$s</string>
+    <!-- Running view: explanations collapsed by default -->
+    <string name="how_it_works_show">How it works</string>
+    <!-- %1$s = "0.4 MB" -->
+    <string name="running_data_since_start">Data since start: %1$s · mobile data works too</string>
+
+    <!-- ===== Earnings (pool statistics) ===== -->
+    <string name="earnings_kick">Earnings · estimate</string>
+    <string name="earnings_unreachable">Pool statistics not reachable right now. Trying again shortly.</string>
+    <string name="earnings_loading">Loading pool statistics …</string>
+    <string name="earnings_per_day_a11y">about %1$s XCB per day</string>
+    <string name="earnings_no_estimate_a11y">no estimate yet</string>
+    <string name="earnings_per_day_unit">XCB per day</string>
+    <!-- %1$.1f = pool fee in percent -->
+    <string name="earnings_basis_with_support">At your current computing power, after the %1$.1f%% pool fee and support time. An average: actual earnings vary and are not guaranteed.</string>
+    <string name="earnings_in_pool">In the pool</string>
+    <string name="earnings_unavailable">not available right now</string>
+    <string name="earnings_unconfirmed">+ %1$s unconfirmed</string>
+    <string name="earnings_not_paid_yet">XCB, not paid out yet</string>
+    <string name="earnings_payout">Payout</string>
+    <string name="earnings_payout_from">from %1$s</string>
+    <!-- %1$s = pool payout interval, e.g. "4 h" -->
+    <string name="earnings_payout_interval">XCB, paid out every %1$s</string>
+    <!-- %1$s = own H/s, %2$s = pool power with unit, %3$.3f = share in percent -->
+    <string name="earnings_pool_share">Your part of the pool: %1$s H/s of %2$s = %3$.3f%%</string>
+    <string name="earnings_pplns_explainer">How it\'s shared: when the pool finds a block, it splits the reward by the most recently submitted shares (PPLNS). On average, your part matches your share of the pool\'s computing power. As soon as your balance reaches the threshold, the pool pays straight to your address.</string>
+    <string name="region_incomplete">Not all pool regions reachable – total without the missing region.</string>
+    <!-- %1$s = "DE 0.123 · FI 0.045", %2$s = payout threshold -->
+    <string name="region_split">Spread across %1$s. Each pool region pays out separately once %2$s XCB is reached there. A smaller remainder stays in its region until you mine there again.</string>
+    <!-- Short line under the balance; %1$s = "DE 0.123 · FI 0.045", %2$s = payout threshold -->
+    <string name="region_short">%1$s · payout per region from %2$s XCB</string>
+    <!-- Start screen after a run -->
+    <string name="balance_payout_line">Payout from %1$s XCB straight to your address · paid out so far %2$s XCB</string>
+
+    <!-- ===== Dimmed screen ===== -->
+    <string name="dimmed_wake_action">Brighten</string>
+    <string name="dimmed_state_a11y">Mining is running, screen dimmed</string>
+    <string name="dimmed_cooling">Cooling down</string>
+    <!-- %1$s = "1,540 H/s" or state, %2$d = accepted shares (quantity) -->
+    <plurals name="dimmed_status">
+        <item quantity="one">%1$s · %2$d share</item>
+        <item quantity="other">%1$s · %2$d shares</item>
+    </plurals>
+    <string name="dimmed_hint">Mining XCB · Tap to brighten</string>
+
+    <!-- ===== Details and log (for tests) ===== -->
+    <string name="details_show">Details and log</string>
+    <string name="details_trail_title">Block trail · events from the pool</string>
+    <string name="details_trail_legend">Short bar = new job from the pool · tall bar = share accepted · grey = support time</string>
+    <!-- %1$.0f = share difficulty, %2$s = Android thermal status, %3$s = engine flags -->
+    <string name="details_stats">Share difficulty: %1$.0f  ·  Thermal: %2$s\n%3$s</string>
+    <string name="details_copy_log">Copy log</string>
+    <string name="details_log_clip_label">Mining log</string>
+
+    <!-- ===== About this app ===== -->
+    <string name="about_title">About this app</string>
+    <string name="about_back">← Back</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_publisher_title">Publisher</string>
+    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. We explain the Core ecosystem and build tools for it. No account, no tracking. 0.42% of the computing time supports further development.</string>
+    <string name="about_legal_imprint">Legal notice</string>
+    <string name="about_legal_privacy">Privacy policy</string>
+    <string name="about_feedback">Feedback &amp; bug reports</string>
+    <!-- %1$s = Knopf "Details und Log", %2$s = Knopf "Log kopieren" -->
+    <string name="about_feedback_hint">For a bug, the log helps: “%1$s” → “%2$s”, then paste it into the form.</string>
+    <string name="about_xcb_title">What is XCB?</string>
+    <string name="about_xcb_body">XCB (Core Coin) is the currency of the Core network. New XCB are created by mining: computers solve tasks with the RandomY method, which is made for normal processors – that\'s why a phone can join in too. The more people mine, the more widely spread the network is.</string>
+    <string name="about_connections_title">What the app sends</string>
+    <string name="about_connection_pool">To the pool Catch That Rabbit: your address, the name in the pool, your computing power and your computing results. Unencrypted, because the pool offers nothing else.</string>
+    <string name="about_connection_stats">For earnings and balance, the app asks the statistics of the same pool (encrypted).</string>
+    <string name="about_connection_support">For the support time, the app computes for TMMAC over a second connection, 25 seconds every 100 minutes.</string>
+    <string name="about_connections_none">Nothing else: no analytics, no ads, no cloud. Your details stay on your phone.</string>
+    <string name="about_license_title">License</string>
+    <string name="about_license_body">Open-source software (GPL-3.0). Anyone who builds on it and passes it on must publish their source code and show “Based on CorePulse by TMMAC”.</string>
+    <string name="about_source">Source code of this version</string>
+    <string name="about_license_notice">License and additional terms (NOTICE)</string>
+    <string name="about_license_gpl">GPL-3.0 (full text)</string>
+    <string name="about_oss_title">All license texts</string>
+    <!-- %1$s = label of the license link -->
+    <string name="about_license_missing">License text missing.</string>
+
+    <!-- ===== Consent before the first mining start (Consent.VERSION in miner-core, ConsentTest hashes these texts) ===== -->
+    <string name="consent_kick">Before starting</string>
+    <string name="consent_title">Before you start</string>
+    <string name="consent_beta_head">Beta software</string>
+    <string name="consent_beta">CorePulse is beta software by Tell Me More About Core. The license and liability terms apply.</string>
+    <string name="consent_load_head">Battery &amp; heat</string>
+    <string name="consent_load">While mining, your phone computes at the power you chose, at full load with “All”. The phone gets warm, the battery is put under more strain and drains faster when not charging. If the battery gets too warm, the app pauses by itself. You pay for the electricity to charge it.</string>
+    <string name="consent_share_head" formatted="false">Support share 0.42%</string>
+    <string name="consent_share" formatted="false">0.42% of the computing time supports further development (TMMAC). This share is built in and cannot be switched off.</string>
+    <string name="consent_earn_head">No guaranteed earnings</string>
+    <string name="consent_earn">Earnings vary and are not guaranteed. Mined XCB may be taxable.</string>
+    <string name="consent_pool_head">What the pool sees</string>
+    <string name="consent_pool">While mining, the app connects to the pool Catch That Rabbit. It sees your address, the name in the pool (e.g. phone-7k2f), your computing power and your IP address. Anyone who looks up your address in the pool statistics can see the name and the computing power.</string>
+    <string name="consent_notice">License and liability (NOTICE)</string>
+    <string name="consent_agree">I have read the notes and agree.</string>
+    <string name="consent_need">Tick the box to start.</string>
+
+    <!-- ===== Notifications ===== -->
+    <string name="channel_mining">Mining</string>
+    <string name="channel_alerts">Alerts</string>
+    <string name="notif_title">Mining XCB</string>
+    <string name="notif_action_stop">Stop</string>
+    <string name="notif_cooling">Cooling down – continues by itself afterwards</string>
+    <!-- %1$s = "1,540" -->
+    <string name="notif_support">Support time running (TMMAC) · %1$s H/s</string>
+    <!-- %1$s = "1,540", %2$d = accepted shares (quantity); the service appends the temperature -->
+    <plurals name="notif_status">
+        <item quantity="one">%1$s H/s · %2$d share</item>
+        <item quantity="other">%1$s H/s · %2$d shares</item>
+    </plurals>
+    <string name="alert_heat_title">Cooling pause</string>
+    <string name="alert_heat_text">The battery got warm. Mining pauses until it has cooled down and then continues by itself.</string>
+    <string name="alert_stopped_title">Mining stopped</string>
+
+    <!-- ===== Stop reasons (notice in the app and notification) ===== -->
+    <string name="notice_error">Mining stopped because of an error. See “Details and log”.</string>
+    <!-- %1$d = minimum memory in MB -->
+    <string name="notice_low_memory">Not enough free memory (at least %1$d MB). Close other apps and start mining again.</string>
+    <!-- %1$s = technical reason (system message, not translated) -->
+    <string name="notice_start_failed">Starting did not work. Close other apps and start again. Technical reason: %1$s</string>
+    <string name="notice_login_rejected">The pool doesn\'t accept this address. Please check it (best copy it from CorePass).</string>
+    <string name="notice_low_battery">Battery at %1$d%%. Mining stopped so the battery doesn\'t run empty. Plug in the charger and you can keep mining right away.</string>
+    <!-- %1$s = battery temperature without unit, or "–" -->
+    <string name="notice_too_hot">Mining stopped because your phone got too warm (battery %1$s °C). Let it cool down, then start again, ideally with less power.</string>
+    <string name="notice_no_temperature">The temperature can\'t be measured on this phone. Without it, the app can\'t watch for heat, so it doesn\'t mine here.</string>
+    <string name="notice_not_cooling">Your phone didn\'t cool down during a 15-minute pause, so mining stopped. Move it somewhere cooler or unplug the charger, then start again.</string>
+    <string name="notice_no_workers">Mining couldn\'t compute on this device. See “Details and log”.</string>
+
+    <!-- ===== Summary after stopping ("Stopped after 12 min · 3 shares accepted · max. 38 °C") ===== -->
+    <string name="summary_under_minute">under 1 min</string>
+    <plurals name="summary_shares">
+        <item quantity="one">%1$d share accepted</item>
+        <item quantity="other">%1$d shares accepted</item>
+    </plurals>
+    <string name="summary_max_temp">max. %1$.0f °C</string>
+    <!-- %1$s = duration, %2$s = shares -->
+    <string name="summary_stopped">Stopped after %1$s · %2$s</string>
+    <!-- %3$s = highest temperature -->
+    <string name="summary_stopped_with_temp">Stopped after %1$s · %2$s · %3$s</string>
+
+    <!-- ===== In-app log (Details and log). One string per LogKey (miner-core LogEvent.kt); the German debug logcat comes from LogEvent.german(), not from here. ===== -->
+    <string name="log_share_dropped_no_pool">Share dropped: no pool connection (nonce 0x%1$016x)</string>
+    <string name="log_server_choice">Server choice: %1$s</string>
+    <string name="log_server_choice_home">Server choice: %1$s, home %2$s</string>
+    <string name="log_back_to_home">Back to home server: %1$s %2$d ms (instead of %3$s; each region keeps its own balance)</string>
+    <string name="log_shares_unanswered">Shares without pool response: %1$d (connection lost)</string>
+    <string name="log_unreadable_pool_message">Unreadable pool message: %1$s</string>
+    <string name="log_pool_error">Pool error (id=%1$s): %2$s</string>
+    <string name="log_job_unreadable">Unreadable job: %1$s</string>
+    <string name="log_support_failed">Support time ended: %1$s %2$s</string>
+    <string name="log_support_login_rejected">Support time: pool rejects login (%1$s)</string>
+    <string name="log_support_skipped">Support time skipped this round: pool not reachable</string>
+    <string name="log_support_running">Support time running (%1$d s)</string>
+    <string name="log_support_done">Support time ended, hashes for TMMAC: %1$d</string>
+    <string name="log_randomy_ready">RandomY ready in %1$.1f s, JIT=%2$s, FullMem=%3$s, HardAES=%4$s, self-test OK</string>
+    <string name="log_selftest_retry_without_jit">%1$s → retrying without JIT</string>
+    <string name="log_stop_thread_still_running">Stop: a thread is still computing, RandomY memory is freed once it finishes</string>
+    <string name="log_thread_no_vm">Thread %1$d: could not create VM</string>
+    <string name="log_thread_selftest_failed">Thread %1$d: %2$s → thread does not compute</string>
+    <string name="log_thread_ended">Thread %1$d: ended with %2$s %3$s</string>
+    <string name="log_test_no_heat_pause">TEST: app heat pause and safety stop off, only Android protects</string>
+    <string name="log_error">Error: %1$s %2$s</string>
+    <string name="log_starting">Starting: worker %1$s, threads: %2$d, %3$s %4$s, Android %5$s, free RAM %6$d of %7$d MiB</string>
+    <string name="log_share_found">Share found (nonce %1$016x)</string>
+    <string name="log_start_failed">Start failed: %1$s</string>
+    <string name="log_support_share_accepted">Support time share accepted</string>
+    <string name="log_support_share_rejected">Support time share rejected: %1$s</string>
+    <string name="log_support_on">Support time on (%1$.2f %%)</string>
+    <string name="log_connected">Logged in at %1$s</string>
+    <string name="log_disconnected">Disconnected: %1$s</string>
+    <string name="log_login_rejected">Login rejected: %1$s</string>
+    <string name="log_share_accepted">Share accepted</string>
+    <string name="log_share_rejected">Share rejected: %1$s</string>
+    <string name="log_measurement">Measurement %1$.0f H/s, threads %2$d, battery %3$.1f °C, thermal %4$s</string>
+    <string name="log_support_balance">Support balance: TMMAC hashes %1$d of %2$d (%3$.3f %%), time %4$.0f of %5$.0f s (%6$.3f %%)</string>
+    <string name="log_heat_pause">Heat pause (battery %1$.1f °C, thermal %2$s)</string>
+    <string name="log_heat_resume">Continuing after %1$.0f s heat pause</string>
+    <string name="log_stopped_with_notice">Stopped: %1$s</string>
+    <string name="log_stopped">Stopped</string>
+    <string name="log_pool_stats_failed">Pool statistics not available: %1$s</string>
+    <string name="glossary_kick">Terms</string>
+    <string name="glossary_rate">How many attempts (hashes) your phone computes per second. More computing power means more shares and more earnings on average.</string>
+    <string name="glossary_pool_term">Pool</string>
+    <string name="glossary_pool">Many devices compute together and split the reward by their shares. Here that is the pool Catch That Rabbit (CTR).</string>
+    <string name="glossary_unconfirmed_term">Unconfirmed</string>
+    <string name="glossary_unconfirmed">Earnings from just-found blocks. Once the network has confirmed the block, they are added to your balance.</string>
+    <string name="glossary_regions_term">Regions</string>
+    <string name="glossary_regions">CTR has servers in four regions: DE (Germany), FI (Finland), SG (Singapore) and HK (Hong Kong). The app picks the server automatically. Each region counts and pays out your balance separately.</string>
+    <!-- Sprachwahl (Weltkugel oben rechts) -->
+    <string name="language_title">Language</string>
+    <string name="language_system">Phone setting (%1$s)</string>
+    <string name="language_a11y">Change language, currently %1$s</string>
+    <!-- Zustand aufklappbarer Zeilen fuer TalkBack -->
+    <string name="state_expanded">expanded</string>
+    <string name="state_collapsed">collapsed</string>
+    <string name="running_curve_a11y">Recent history: lowest %1$s, highest %2$s, now %3$s hashes per second</string>
+    <!-- Design-Runde 30.10.: Startschritte, Puls-Spur, Quittung, Wiederkehrer -->
+    <string name="start_step_memory">Checking memory</string>
+    <string name="start_step_build">Building about 260 MB of working memory and testing it</string>
+    <string name="start_step_server">Finding the fastest server</string>
+    <string name="start_step_job">Fetching the first job from the pool</string>
+    <string name="start_step_a11y">Step %1$d of %2$d: %3$s</string>
+    <string name="running_trail_a11y">Jobs from the pool: %1$d · shares accepted: %2$d</string>
+    <string name="duration_hours_minutes">%1$d h %2$02d min</string>
+    <string name="receipt_kick">Last run</string>
+    <string name="receipt_duration">Duration</string>
+    <string name="receipt_hashes">Hashes computed</string>
+    <string name="receipt_max_temp">Max. temp</string>
+    <string name="receipt_estimate">Your share</string>
+    <string name="receipt_estimate_note">estimate, not guaranteed</string>
+    <string name="address_compact">Payouts to %1$s</string>
+    <string name="address_compact_a11y">Valid address. Payouts go to %1$s</string>
+    <string name="setup_intro_short">All set. Press Start – the pool pays straight to your address.</string>
+</resources>

@@ -1,0 +1,3 @@
+[submodule "native/third_party/RandomY"]
+	path = native/third_party/RandomY
+	url = https://github.com/core-coin/RandomY.git

@@ -1,0 +1,15 @@
+.gradle/
+build/
+*/build/
+local.properties
+.idea/
+*.iml
+.kotlin/
+.cxx/
+app/.cxx/
+*.keystore
+*.jks
+# JVM-Absturzberichte (enthalten Pfade/Umgebung)
+hs_err_pid*.log
+*.p12
+*.pfx

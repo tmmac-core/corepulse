@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand-Canvas (#030504) schon beim Kaltstart, bevor Compose zeichnet: kein grauer Blitz -->
+    <style name="Theme.Miner" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/canvas</item>
+    </style>
+    <color name="canvas">#FF030504</color>
+</resources>

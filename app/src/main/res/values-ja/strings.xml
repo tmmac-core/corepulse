@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    日本語. Tone: polite です・ます, kurz fuer Handy-Bildschirme, kein あなた (wie Core Portfolio Tracker).
+    Begriffe: シェア, プール, マイニング, アドレス, ウォレット (Tracker), アプリについて (Tracker).
+    Lateinisch bleiben: XCB, Core, CorePass, Catch That Rabbit, TMMAC, H/s, PPLNS.
+    Maschinell entworfen – vor breiter Veroeffentlichung von Muttersprachlern pruefen lassen.
+-->
+<resources>
+
+    <!-- ===== Allgemein ===== -->
+    <string name="value_percent">%1$d%%</string>
+    <string name="value_celsius">%1$.0f °C</string>
+    <string name="duration_approx">約%1$s</string>
+    <string name="duration_seconds">%1$d秒</string>
+    <string name="duration_minutes">%1$d分</string>
+    <string name="duration_hours">%1$d時間</string>
+    <string name="ago_just_now">たった今</string>
+    <string name="ago_minutes">%1$d分前</string>
+    <string name="ago_hours_minutes">%1$d時間%2$d分前</string>
+    <string name="status_stopping">停止しています…</string>
+    <string name="status_preparing">準備しています…</string>
+    <string name="support_text" formatted="false">計算時間の0.42%（100分ごとに25秒）を今後の開発（TMMAC）の支援に充てます。</string>
+
+    <!-- ===== スタート画面: アドレス ===== -->
+    <string name="setup_title">スマホで\nXCBを\nマイニング。</string>
+    <string name="setup_intro">XCB（Core Coin）はCoreネットワークの通貨です。スマホはプールCatch That Rabbitに参加します。プールでは多くの端末が一緒に計算し、報酬を分け合います。報酬はプールからアドレスへ直接支払われ、このアプリは経由しません。アカウント不要、トラッキングなし。</string>
+    <string name="setup_pool_link">プールで確認する</string>
+    <string name="address_kick">アドレス</string>
+    <string name="address_paste">貼り付け</string>
+    <string name="address_valid_payout_to">有効です。支払い先：</string>
+    <string name="address_valid_payout_to_address">有効です。支払い先：\n%1$s</string>
+    <string name="address_hint_empty">CorePassまたは他のウォレット（XCBを管理するアプリ）からコピーしてください</string>
+    <string name="address_hint_testnet">これはテストネットのアドレスです。マイニングにはcbで始まるアドレスが必要です。</string>
+    <string name="address_hint_wrong_checksum">一部の文字が正しくありません。手入力ではなくコピーしてください。</string>
+    <string name="address_hint_wrong_format">Coreのアドレスではありません。cbで始まる44文字です。</string>
+    <string name="address_scan_button">QRコードをスキャン</string>
+    <string name="address_scan_privacy">カメラはQRコードを読み取るだけで、何も保存しません。</string>
+    <string name="address_none_title">Coreのアドレスをお持ちでない場合</string>
+    <string name="address_none_body">CorePassアプリで作成できます。設定後、アプリ内のアドレス（cbで始まります）をコピーしてここに貼り付けるか、QRコードをスキャンしてください。</string>
+    <string name="address_corepass_store_link">Google PlayでCorePassを見る</string>
+
+    <!-- ===== スタート画面: QRスキャン ===== -->
+    <string name="scan_prompt">CoreアドレスのQRコード</string>
+    <string name="scan_no_camera_permission">カメラの許可がないとスキャンできません。アドレスをコピーして貼り付けてください。</string>
+    <string name="scan_multiple_addresses">このQRコードには複数のアドレスが含まれています。正しいアドレスをコピーして貼り付けてください。</string>
+    <string name="scan_no_address">このQRコードにはCoreのアドレスがありません。</string>
+
+    <!-- ===== スタート画面: プールでの名前 ===== -->
+    <string name="worker_kick">プールでの名前</string>
+    <string name="worker_edit">変更</string>
+    <string name="worker_save">保存</string>
+    <string name="worker_public_warning">プールの統計で公開されます。本名は使わないでください</string>
+    <string name="worker_invalid">英字か数字を1文字以上入れてください</string>
+    <string name="worker_explainer">プールの統計に表示されるこのスマホの名前です。複数の端末を区別します。</string>
+
+    <!-- ===== スタート画面: 性能とスイッチ ===== -->
+    <string name="power_kick">性能</string>
+    <string name="power_option_all">すべて</string>
+    <plurals name="power_option_cores">
+        <item quantity="other">%2$dコア中%1$d</item>
+    </plurals>
+    <string name="power_hint">性能を上げるほど発熱とバッテリー消費が増えます。充電はコンセントからがおすすめです（パソコンのUSBでは電力が足りないことがあります）。バッテリーが熱くなりすぎると、アプリが自動で一時停止します。</string>
+    <string name="toggle_screen_title">画面をつけたままにする</string>
+    <string name="toggle_screen_detail">アプリを開いている間、画面は暗いまま点灯します。アプリを前面に表示したままにしてください。オフにすると、多くのスマホでAndroidがマイニングを大きく制限します。</string>
+
+    <!-- ===== 開始・停止ボタン ===== -->
+    <string name="start_reason_no_address">まず有効なCoreアドレスを入力してください</string>
+    <string name="start_reason_no_name">プールでの名前を入力してください</string>
+    <string name="start_reason_notifications">このあとAndroidが通知の許可を求めます。マイニング中であることが分かり、いつでも停止できます。</string>
+    <string name="start_button">マイニングを開始</string>
+    <string name="start_footer" formatted="false">プール Catch That Rabbit · アカウント不要 · サポート枠0.42%</string>
+    <string name="stop_button">停止</string>
+
+    <!-- ===== マイニング中 ===== -->
+    <string name="running_kick_preparing">準備中</string>
+    <string name="running_preparing">準備しています…初回の開始には最大1分かかります。</string>
+    <string name="running_kick_stopping">停止中</string>
+    <string name="running_kick_cooling">一時停止 · 冷却中</string>
+    <string name="running_cooling">バッテリーが冷えるまで一時停止中です。その後、自動で再開します。</string>
+    <string name="running_kick_support">サポート枠</string>
+    <string name="running_support">サポート枠を実行中：今後の開発（TMMAC）のために25秒間計算します。</string>
+    <string name="running_kick_waiting">プール待ち</string>
+    <string name="running_waiting">プールに接続できません。Wi-Fiかモバイル回線を確認してください。ネットワークが戻ると、マイニングは自動で再開します。</string>
+    <string name="running_kick_mining">XCBをマイニング中 · サーバー %1$s</string>
+    <string name="running_warm">動作中です。バッテリーは%1$.0f °Cでやや高めですが、アプリが見守っており、50 °Cで自動的に一時停止します。</string>
+    <string name="running_hot">動作中です。バッテリーは%1$.0f °Cでかなり高めですが、アプリが見守っており、50 °Cで自動的に一時停止します。</string>
+    <string name="running_ok">動作中です。すべて正常です。</string>
+    <string name="running_elapsed_a11y">稼働時間 %1$s</string>
+    <string name="running_rate_a11y">毎秒%1$sハッシュ</string>
+    <string name="running_not_computing_a11y">現在は計算していません</string>
+    <string name="running_rate_detail">毎秒ハッシュ数 · H/s</string>
+    <string name="running_rate_unit">計算能力</string>
+    <string name="running_curve_filling">グラフを記録中…</string>
+    <string name="running_curve_start">10分前</string>
+    <string name="running_curve_now">現在</string>
+    <string name="figure_shares">シェア</string>
+    <string name="figure_battery">バッテリー</string>
+    <string name="figure_temp">温度</string>
+    <plurals name="share_note_rejected">
+        <item quantity="other">%1$d件拒否</item>
+    </plurals>
+    <string name="share_note_last">最新：%1$s</string>
+    <string name="share_note_first">初回まで%1$s</string>
+    <string name="battery_note_charging">充電中</string>
+    <string name="battery_note_drain">1時間あたり−%1$.0f%%</string>
+    <string name="temp_normal">正常</string>
+    <string name="temp_warm">やや高め</string>
+    <string name="temp_hot">かなり高め</string>
+    <string name="running_share_interval">この計算能力だと、平均で%1$sごとにシェアが1つ見つかります。偶然に左右されるため、早いことも遅いこともあります。</string>
+    <string name="running_share_explainer">シェアとは、プールが作業の証明として認める計算結果です。報酬の配分はシェアをもとに決まります。</string>
+    <string name="running_worker_name">プールでの名前：%1$s</string>
+    <string name="how_it_works_show">仕組みを見る</string>
+    <string name="running_data_since_start">開始からの通信量：%1$s · モバイル回線でも使えます</string>
+
+    <!-- ===== 収益（プールの統計） ===== -->
+    <string name="earnings_kick">収益 · 推定</string>
+    <string name="earnings_unreachable">プールの統計に接続できません。まもなく再試行します。</string>
+    <string name="earnings_loading">プールの統計を読み込み中…</string>
+    <string name="earnings_per_day_a11y">1日あたり約%1$s XCB</string>
+    <string name="earnings_no_estimate_a11y">まだ推定できません</string>
+    <string name="earnings_per_day_unit">XCB／日</string>
+    <string name="earnings_basis_with_support">現在の計算能力で、プール手数料%1$.1f%%とサポート枠を差し引いた値です。平均値のため、実際の報酬は変動し、保証されません。</string>
+    <string name="earnings_in_pool">プール内</string>
+    <string name="earnings_unavailable">現在取得できません</string>
+    <string name="earnings_unconfirmed">＋%1$s 未確定</string>
+    <string name="earnings_not_paid_yet">XCB（未払い）</string>
+    <string name="earnings_payout">支払い</string>
+    <string name="earnings_payout_from">%1$sから</string>
+    <string name="earnings_payout_interval">XCB、%1$sごとに支払い</string>
+    <string name="earnings_pool_share">プール内の割合：%2$s中%1$s H/s = %3$.3f%%</string>
+    <string name="earnings_pplns_explainer">分配のしくみ：プールがブロックを見つけると、直近に提出されたシェアに応じて報酬を分けます（PPLNS）。取り分は平均すると、プール全体の計算能力に占めるあなたの割合に比例します。残高が基準額に達すると、プールからアドレスへ直接支払われます。</string>
+    <string name="region_incomplete">一部のプール地域に接続できません。合計には含まれていません。</string>
+    <string name="region_split">残高の内訳：%1$s。プールの地域ごとに、%2$s XCBに達した時点で個別に支払われます。それ未満の残りは、その地域で再びマイニングするまで残ります。</string>
+    <string name="region_short">%1$s・各地域%2$s XCBから支払い</string>
+    <string name="balance_payout_line">%1$s XCBからアドレスへ直接支払い · 支払い済み %2$s XCB</string>
+
+    <!-- ===== 暗い画面 ===== -->
+    <string name="dimmed_wake_action">明るくする</string>
+    <string name="dimmed_state_a11y">マイニング中、画面を暗くしています</string>
+    <string name="dimmed_cooling">冷却中</string>
+    <plurals name="dimmed_status">
+        <item quantity="other">%1$s · シェア%2$d</item>
+    </plurals>
+    <string name="dimmed_hint">XCBをマイニング中 · タップで明るくなります</string>
+
+    <!-- ===== 詳細とログ（テスト用） ===== -->
+    <string name="details_show">詳細とログ</string>
+    <string name="details_trail_title">ブロックの記録 · プールからのイベント</string>
+    <string name="details_trail_legend">短い線＝プールからの新しいジョブ · 長い線＝シェア承認 · グレー＝サポート枠</string>
+    <string name="details_stats">シェア難易度：%1$.0f  ·  Thermal：%2$s\n%3$s</string>
+    <string name="details_copy_log">ログをコピー</string>
+    <string name="details_log_clip_label">マイニングログ</string>
+
+    <!-- ===== アプリについて ===== -->
+    <string name="about_title">アプリについて</string>
+    <string name="about_back">← 戻る</string>
+    <string name="about_version">バージョン %1$s</string>
+    <string name="about_publisher_title">提供元</string>
+    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core。Coreのエコシステムを解説し、そのためのツールを作っています。アカウント不要、トラッキングなし。計算時間の0.42%を今後の開発の支援に充てます。</string>
+    <string name="about_legal_imprint">運営者情報</string>
+    <string name="about_legal_privacy">プライバシーポリシー</string>
+    <string name="about_feedback">ご意見・不具合の報告</string>
+    <!-- %1$s = Knopf "Details und Log", %2$s = Knopf "Log kopieren" -->
+    <string name="about_feedback_hint">不具合の場合はログが役立ちます。「%1$s」→「%2$s」の後、フォームに貼り付けてください。</string>
+    <string name="about_xcb_title">XCBとは？</string>
+    <string name="about_xcb_body">XCB（Core Coin）はCoreネットワークの通貨です。新しいXCBはマイニングで生まれます。コンピューターがRandomYという方式で計算問題を解きます。RandomYは一般的なプロセッサー向けに作られているため、スマホでも参加できます。マイニングする人が多いほど、ネットワークは広く分散します。</string>
+    <string name="about_connections_title">アプリが送信するもの</string>
+    <string name="about_connection_pool">プールCatch That Rabbitへ：アドレス、プールでの名前、計算能力、計算結果。プールが暗号化接続を提供していないため、暗号化されません。</string>
+    <string name="about_connection_stats">収益と残高のために、同じプールの統計に問い合わせます（暗号化）。</string>
+    <string name="about_connection_support">サポート枠のために、2本目の接続でTMMACのために計算します。100分ごとに25秒間です。</string>
+    <string name="about_connections_none">それ以外は一切ありません。分析、広告、クラウドはありません。入力した情報は端末内に残ります。</string>
+    <string name="about_license_title">ライセンス</string>
+    <string name="about_license_body">オープンソースソフトウェア（GPL-3.0）です。これをもとに開発して配布する場合は、ソースコードを公開し、「Based on CorePulse by TMMAC」と表示する必要があります。</string>
+    <string name="about_source">このバージョンのソースコード</string>
+    <string name="about_license_notice">ライセンスと追加条項（NOTICE）</string>
+    <string name="about_license_gpl">GPL-3.0（全文）</string>
+    <string name="about_oss_title">すべてのライセンス文</string>
+    <string name="about_license_missing">ライセンス文が見つかりません。</string>
+
+    <!-- ===== 初回マイニング前の同意（Consent.VERSION / ConsentTest） ===== -->
+    <string name="consent_kick">開始前に</string>
+    <string name="consent_title">開始する前に</string>
+    <string name="consent_beta_head">ベータ版</string>
+    <string name="consent_beta">CorePulseはTell Me More About Coreによるベータ版ソフトウェアです。ライセンスと責任に関する条件が適用されます。</string>
+    <string name="consent_load_head">バッテリーと発熱</string>
+    <string name="consent_load">マイニング中、スマホは選んだ性能で計算し、「すべて」ではフル稼働します。スマホが温かくなり、バッテリーへの負荷が増え、充電していないときは減りが早くなります。バッテリーが熱くなりすぎると、アプリが自動で一時停止します。充電の電気代はご自身の負担です。</string>
+    <string name="consent_share_head" formatted="false">開発支援 0.42%</string>
+    <string name="consent_share" formatted="false">計算時間の0.42%を今後の開発（TMMAC）の支援に充てます。この割合は組み込みで、オフにできません。</string>
+    <string name="consent_earn_head">収益の保証なし</string>
+    <string name="consent_earn">収益は変動し、保証されません。マイニングしたXCBには課税される場合があります。</string>
+    <string name="consent_pool_head">プールに見える情報</string>
+    <string name="consent_pool">マイニング中、アプリはプールCatch That Rabbitに接続します。プールにはアドレス、プールでの名前（例：phone-7k2f）、計算能力、IPアドレスが見えます。名前と計算能力は、プールの統計でアドレスを検索すれば誰でも見られます。</string>
+    <string name="consent_notice">ライセンスと責任（NOTICE）</string>
+    <string name="consent_agree">注意事項を読み、同意します。</string>
+    <string name="consent_need">開始するにはチェックを入れてください。</string>
+
+    <!-- ===== 通知 ===== -->
+    <string name="channel_mining">マイニング</string>
+    <string name="channel_alerts">お知らせ</string>
+    <string name="notif_title">XCBをマイニング中</string>
+    <string name="notif_action_stop">停止</string>
+    <string name="notif_cooling">冷却中です。冷えたら自動で再開します</string>
+    <string name="notif_support">サポート枠を実行中（TMMAC） · %1$s H/s</string>
+    <plurals name="notif_status">
+        <item quantity="other">%1$s H/s · シェア%2$d</item>
+    </plurals>
+    <string name="alert_heat_title">冷却のため一時停止</string>
+    <string name="alert_heat_text">バッテリーの温度が上がりました。冷えるまでマイニングを一時停止し、その後自動で再開します。</string>
+    <string name="alert_stopped_title">マイニングを停止しました</string>
+
+    <!-- ===== 停止理由 ===== -->
+    <string name="notice_error">エラーのためマイニングを停止しました。詳しくは「詳細とログ」をご覧ください。</string>
+    <string name="notice_low_memory">空きメモリが不足しています（%1$d MB以上必要）。他のアプリを閉じてから再開してください。</string>
+    <string name="notice_start_failed">開始できませんでした。他のアプリを閉じて、もう一度開始してください。技術的な理由：%1$s</string>
+    <string name="notice_login_rejected">プールがこのアドレスを受け付けません。アドレスを確認してください（CorePassからのコピーがおすすめです）。</string>
+    <string name="notice_low_battery">バッテリー残量%1$d%%。バッテリーが空にならないよう停止しました。充電器につなげばすぐに再開できます。</string>
+    <string name="notice_too_hot">スマホが熱くなりすぎたため、マイニングを停止しました（バッテリー %1$s °C）。冷ましてから、できれば性能を下げて再開してください。</string>
+    <string name="notice_no_temperature">このスマホでは温度を測定できません。温度が分からないと発熱を見守れないため、マイニングしません。</string>
+    <string name="notice_not_cooling">15分間の一時停止でもスマホが冷えなかったため、マイニングを停止しました。涼しい場所に置くか充電器から外してから、もう一度開始してください。</string>
+    <string name="notice_no_workers">この端末ではマイニングの計算ができませんでした。詳しくは「詳細とログ」をご覧ください。</string>
+
+    <!-- ===== 停止後のまとめ ===== -->
+    <string name="summary_under_minute">1分未満</string>
+    <plurals name="summary_shares">
+        <item quantity="other">シェア%1$d件承認</item>
+    </plurals>
+    <string name="summary_max_temp">最高%1$.0f °C</string>
+    <string name="summary_stopped">%1$s後に停止 · %2$s</string>
+    <string name="summary_stopped_with_temp">%1$s後に停止 · %2$s · %3$s</string>
+
+    <!-- ===== アプリ内ログ（詳細とログ）。LogKeyごとに1つ（miner-core LogEvent.kt）。デバッグ用logcatはLogEvent.german()から。 ===== -->
+    <string name="log_share_dropped_no_pool">シェアを破棄：プールに未接続（nonce 0x%1$016x）</string>
+    <string name="log_server_choice">サーバー選択：%1$s</string>
+    <string name="log_server_choice_home">サーバー選択：%1$s、ホーム %2$s</string>
+    <string name="log_back_to_home">ホームサーバーに戻ります：%1$s %2$d ms（%3$s から。残高は地域ごとに別々です）</string>
+    <string name="log_shares_unanswered">プールの応答がないシェア：%1$d件（接続切断）</string>
+    <string name="log_unreadable_pool_message">読み取れないプールメッセージ：%1$s</string>
+    <string name="log_pool_error">プールエラー（id=%1$s）：%2$s</string>
+    <string name="log_job_unreadable">ジョブを読み取れません：%1$s</string>
+    <string name="log_support_failed">サポート枠を終了：%1$s %2$s</string>
+    <string name="log_support_login_rejected">サポート枠：プールがログインを拒否（%1$s）</string>
+    <string name="log_support_skipped">今回のサポート枠はスキップ：プールに接続できません</string>
+    <string name="log_support_running">サポート枠を実行中（%1$d秒）</string>
+    <string name="log_support_done">サポート枠を終了：TMMACのために%1$dハッシュ</string>
+    <string name="log_randomy_ready">RandomY準備完了（%1$.1f秒）、JIT=%2$s、FullMem=%3$s、HardAES=%4$s、セルフテストOK</string>
+    <string name="log_selftest_retry_without_jit">%1$s → JITなしで再試行</string>
+    <string name="log_stop_thread_still_running">停止：スレッドがまだ計算中です。終わり次第RandomYのメモリを解放します</string>
+    <string name="log_thread_no_vm">スレッド%1$d：VMを作成できませんでした</string>
+    <string name="log_thread_selftest_failed">スレッド%1$d：%2$s → このスレッドは計算しません</string>
+    <string name="log_thread_ended">スレッド%1$dが終了：%2$s %3$s</string>
+    <string name="log_test_no_heat_pause">テスト：アプリの高温一時停止と安全停止はオフ、保護はAndroidのみ</string>
+    <string name="log_error">エラー：%1$s %2$s</string>
+    <string name="log_starting">開始：ワーカー %1$s、%2$dスレッド、%3$s %4$s、Android %5$s、空きRAM %6$d / %7$d MiB</string>
+    <string name="log_share_found">シェアを発見（nonce %1$016x）</string>
+    <string name="log_start_failed">開始に失敗：%1$s</string>
+    <string name="log_support_share_accepted">サポート枠のシェア承認</string>
+    <string name="log_support_share_rejected">サポート枠のシェア拒否：%1$s</string>
+    <string name="log_support_on">サポート枠オン（%1$.2f%%）</string>
+    <string name="log_connected">%1$s にログインしました</string>
+    <string name="log_disconnected">切断：%1$s</string>
+    <string name="log_login_rejected">ログイン拒否：%1$s</string>
+    <string name="log_share_accepted">シェア承認</string>
+    <string name="log_share_rejected">シェア拒否：%1$s</string>
+    <string name="log_measurement">計測 %1$.0f H/s、スレッド %2$d、バッテリー %3$.1f °C、Thermal %4$s</string>
+    <string name="log_support_balance">サポート集計：TMMAC %2$dハッシュ中%1$d（%3$.3f%%）、%5$.0f秒中%4$.0f秒（%6$.3f%%）</string>
+    <string name="log_heat_pause">高温のため一時停止（バッテリー %1$.1f °C、Thermal %2$s）</string>
+    <string name="log_heat_resume">高温による%1$.0f秒の一時停止後に再開</string>
+    <string name="log_stopped_with_notice">停止：%1$s</string>
+    <string name="log_stopped">停止しました</string>
+    <string name="log_pool_stats_failed">プール統計を取得できません：%1$s</string>
+    <string name="glossary_kick">用語</string>
+    <string name="glossary_rate">スマホが1秒間に行う計算の試行回数（ハッシュ）です。計算能力が高いほど、平均してシェアと報酬が増えます。</string>
+    <string name="glossary_pool_term">プール</string>
+    <string name="glossary_pool">多くの端末が一緒に計算し、シェアに応じて報酬を分け合います。ここではプール Catch That Rabbit（CTR）です。</string>
+    <string name="glossary_unconfirmed_term">未確定</string>
+    <string name="glossary_unconfirmed">見つかったばかりのブロックからの報酬です。ネットワークがブロックを確定すると、残高に加わります。</string>
+    <string name="glossary_regions_term">地域</string>
+    <string name="glossary_regions">CTRは4つの地域にサーバーがあります：DE（ドイツ）、FI（フィンランド）、SG（シンガポール）、HK（香港）。サーバーはアプリが自動で選びます。残高は地域ごとに別々に集計され、支払われます。</string>
+    <!-- Sprachwahl (Weltkugel oben rechts) -->
+    <string name="language_title">言語</string>
+    <string name="language_system">端末の設定（%1$s）</string>
+    <string name="language_a11y">言語を変更（現在：%1$s）</string>
+    <!-- Zustand aufklappbarer Zeilen fuer TalkBack -->
+    <string name="state_expanded">展開中</string>
+    <string name="state_collapsed">折りたたみ中</string>
+    <string name="running_curve_a11y">直近の推移：最低 %1$s、最高 %2$s、現在 %3$s ハッシュ/秒</string>
+    <!-- Design-Runde 30.10.: Startschritte, Puls-Spur, Quittung, Wiederkehrer -->
+    <string name="start_step_memory">メモリを確認</string>
+    <string name="start_step_build">約260 MBの作業メモリを作成してテスト</string>
+    <string name="start_step_server">最も速いサーバーを探す</string>
+    <string name="start_step_job">プールから最初のジョブを取得</string>
+    <string name="start_step_a11y">ステップ%1$d/%2$d：%3$s</string>
+    <string name="running_trail_a11y">プールからのジョブ：%1$d · 承認されたシェア：%2$d</string>
+    <string name="duration_hours_minutes">%1$d時間%2$02d分</string>
+    <string name="receipt_kick">前回の実行</string>
+    <string name="receipt_duration">時間</string>
+    <string name="receipt_hashes">計算したハッシュ</string>
+    <string name="receipt_max_temp">最高温度</string>
+    <string name="receipt_estimate">あなたの取り分</string>
+    <string name="receipt_estimate_note">推定値・保証なし</string>
+    <string name="address_compact">支払い先：%1$s</string>
+    <string name="address_compact_a11y">有効なアドレスです。支払い先：%1$s</string>
+    <string name="setup_intro_short">設定は完了しています。開始を押すだけです。プールがあなたのアドレスに直接支払います。</string>
+</resources>
