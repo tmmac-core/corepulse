@@ -37,8 +37,9 @@ Dann dasselbe Passwort im Passwort-Manager speichern und die zwei Sicherungen de
 
 1. `versionCode` erhoehen und `versionName` setzen (`app/build.gradle.kts`). Auch jede Test-APK, die das Haus
    verlaesst, bekommt einen neuen `versionCode`, sonst gilt sie nicht als Update.
-2. Veroeffentlicht wird nur aus einem signierten Tag (`git tag -s v1.0.0`), gebaut aus genau diesem Stand ohne
-   lokale Aenderungen. Die Commit-ID in der APK (`META-INF/version-control-info.textproto`) muss zum Tag passen.
+2. Veroeffentlicht wird nur aus einem Tag als TMMAC, gebaut aus genau diesem Stand ohne lokale Aenderungen:
+   `GIT_COMMITTER_NAME=TMMAC GIT_COMMITTER_EMAIL=contact@tellmemoreaboutcore.com git tag -a v<version> -m "CorePulse <version>"`
+   (mit `-s` statt `-a` signiert, sobald ein Git-Signierschluessel eingerichtet ist; v1.0.0 ist annotiert, nicht signiert). Die Commit-ID in der APK (`META-INF/version-control-info.textproto`) muss zum Tag passen.
 3. Bauen. Der Build liest das Passwort aus dem Schluesselbund. Beim ersten Mal fragt macOS evtl. nach, ob `security`
    zugreifen darf.
    ```bash

@@ -36,13 +36,13 @@ android {
 
     defaultConfig {
         applicationId = "com.tellmemoreaboutcore.miner"
-        minSdk = 28        // Android 9, wie Kryptex; aeltere Geraete haben selten genug RAM
+        minSdk = 28        // Android 9; aeltere Geraete haben selten genug RAM
         targetSdk = 36
         // versionCode bei JEDER verteilten APK +1 (auch Testfassungen), sonst erkennen Android und Obtainium kein Update
         versionCode = 7
         versionName = "1.0.0"
         ndk {
-            // Nur arm64: echte Handys und der ARM64-Emulator (miner-test). x86_64-Handys gibt es praktisch
+            // Nur arm64: echte Handys und ARM64-Emulatoren. x86_64-Handys gibt es praktisch
             // nicht; 32-Bit-ARM hat keinen RandomY-JIT → zu langsam.
             abiFilters += listOf("arm64-v8a")
         }
