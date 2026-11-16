@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    English = default and fallback for every phone language other than German, Japanese, Dutch and Romanian.
+    English = default and fallback for every phone language other than German, Japanese, Dutch, Romanian and Turkish.
     Tone like the German original: plain words for non-experts, direct "you".
     Unchanged in every language: XCB, Core, CorePass, Catch That Rabbit, TMMAC, H/s, PPLNS.
     The developer log (Details and log) stays German on purpose: it comes partly from miner-core
@@ -30,7 +30,7 @@
     <!-- ===== Start screen: address ===== -->
     <string name="setup_title">Your phone\nmines XCB.</string>
     <string name="setup_intro">XCB (Core Coin) is the currency of the Core network. Your phone joins the pool Catch That Rabbit, where many devices compute together and share the reward. The pool pays straight to your address, not through this app. No account, no tracking.</string>
-    <string name="setup_pool_link">Check in the pool</string>
+    <string name="setup_pool_link">View in the pool</string>
     <string name="address_kick">Address</string>
     <string name="address_paste">Paste</string>
     <string name="address_valid_payout_to">Valid. Payouts go to</string>
@@ -68,21 +68,22 @@
         <item quantity="one">%1$d of %2$d core</item>
         <item quantity="other">%1$d of %2$d cores</item>
     </plurals>
+    <plurals name="power_cores_short">
+        <item quantity="one">%d core</item>
+        <item quantity="other">%d cores</item>
+    </plurals>
     <string name="power_hint">More power means more heat and more battery use. Best to charge from a wall charger, because a computer USB port often supplies too little power. If the battery gets too warm, the app pauses by itself.</string>
     <string name="toggle_screen_title">Keep screen on</string>
     <string name="toggle_screen_detail">The screen stays on, dimmed, while the app is open. Keep the app in front for this. Without this, Android slows mining down a lot on many phones.</string>
 
     <!-- ===== Start / stop button ===== -->
-    <string name="start_reason_no_address">First enter a valid Core address</string>
-    <string name="start_reason_no_name">Enter a name for the pool</string>
     <string name="start_reason_notifications">Android will ask next whether the app may show notifications. That way you see that mining is running and can stop it any time.</string>
     <string name="start_button">Start mining</string>
-    <string name="start_footer" formatted="false">Pool Catch That Rabbit · no account · 0.42% support time</string>
+    <string name="start_footer" formatted="false">No account · 0.42% of computing time for TMMAC</string>
     <string name="stop_button">Stop</string>
 
     <!-- ===== Mining in progress ===== -->
     <string name="running_kick_preparing">Getting ready</string>
-    <string name="running_preparing">Getting ready … the first start takes up to a minute.</string>
     <string name="running_kick_stopping">Stopping</string>
     <string name="running_kick_cooling">Paused · cooling down</string>
     <string name="running_cooling">Paused until the battery has cooled down. Then it continues by itself.</string>
@@ -98,14 +99,12 @@
     <string name="running_elapsed_a11y">Running for %1$s</string>
     <string name="running_rate_a11y">%1$s hashes per second</string>
     <string name="running_not_computing_a11y">not computing right now</string>
-    <string name="running_rate_detail">Hashes per second · H/s</string>
     <string name="running_rate_unit">Computing power</string>
     <string name="running_curve_filling">Chart is filling up …</string>
     <string name="running_curve_start">10 min ago</string>
     <string name="running_curve_now">now</string>
     <string name="figure_shares">Shares</string>
     <string name="figure_battery">Battery</string>
-    <string name="figure_temp">Temp</string>
     <plurals name="share_note_rejected">
         <item quantity="one">%1$d rejected</item>
         <item quantity="other">%1$d rejected</item>
@@ -113,7 +112,6 @@
     <!-- %1$s = "3 min ago" / "just now" -->
     <string name="share_note_last">last %1$s</string>
     <!-- %1$s = "~6 min" -->
-    <string name="share_note_first">first in %1$s</string>
     <string name="battery_note_charging">charging</string>
     <string name="battery_note_drain">−%1$.0f%% per h</string>
     <string name="temp_normal">normal</string>
@@ -128,32 +126,23 @@
     <string name="running_data_since_start">Data since start: %1$s · mobile data works too</string>
 
     <!-- ===== Earnings (pool statistics) ===== -->
-    <string name="earnings_kick">Earnings · estimate</string>
     <string name="earnings_unreachable">Pool statistics not reachable right now. Trying again shortly.</string>
     <string name="earnings_loading">Loading pool statistics …</string>
-    <string name="earnings_per_day_a11y">about %1$s XCB per day</string>
-    <string name="earnings_no_estimate_a11y">no estimate yet</string>
-    <string name="earnings_per_day_unit">XCB per day</string>
     <!-- %1$.1f = pool fee in percent -->
     <string name="earnings_basis_with_support">At your current computing power, after the %1$.1f%% pool fee and support time. An average: actual earnings vary and are not guaranteed.</string>
     <string name="earnings_in_pool">In the pool</string>
     <string name="earnings_unavailable">not available right now</string>
-    <string name="earnings_unconfirmed">+ %1$s unconfirmed</string>
-    <string name="earnings_not_paid_yet">XCB, not paid out yet</string>
+    <string name="earnings_unconfirmed">+ %1$s pending</string>
     <string name="earnings_payout">Payout</string>
-    <string name="earnings_payout_from">from %1$s</string>
     <!-- %1$s = pool payout interval, e.g. "4 h" -->
-    <string name="earnings_payout_interval">XCB, paid out every %1$s</string>
     <!-- %1$s = own H/s, %2$s = pool power with unit, %3$.3f = share in percent -->
     <string name="earnings_pool_share">Your part of the pool: %1$s H/s of %2$s = %3$.3f%%</string>
-    <string name="earnings_pplns_explainer">How it\'s shared: when the pool finds a block, it splits the reward by the most recently submitted shares (PPLNS). On average, your part matches your share of the pool\'s computing power. As soon as your balance reaches the threshold, the pool pays straight to your address.</string>
+    <string name="earnings_pplns_explainer">How it\'s shared: when the pool finds a block, it splits the reward by the most recently submitted shares (PPLNS). On average, your part matches your portion of the pool\'s computing power. As soon as your balance reaches the threshold, the pool pays straight to your address.</string>
     <string name="region_incomplete">Not all pool regions reachable – total without the missing region.</string>
     <!-- %1$s = "DE 0.123 · FI 0.045", %2$s = payout threshold -->
     <string name="region_split">Spread across %1$s. Each pool region pays out separately once %2$s XCB is reached there. A smaller remainder stays in its region until you mine there again.</string>
     <!-- Short line under the balance; %1$s = "DE 0.123 · FI 0.045", %2$s = payout threshold -->
-    <string name="region_short">%1$s · payout per region from %2$s XCB</string>
     <!-- Start screen after a run -->
-    <string name="balance_payout_line">Payout from %1$s XCB straight to your address · paid out so far %2$s XCB</string>
 
     <!-- ===== Dimmed screen ===== -->
     <string name="dimmed_wake_action">Brighten</string>
@@ -177,7 +166,6 @@
 
     <!-- ===== About this app ===== -->
     <string name="about_title">About this app</string>
-    <string name="about_back">← Back</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_publisher_title">Publisher</string>
     <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. We explain the Core ecosystem and build tools for it. No account, no tracking. 0.42% of the computing time supports further development.</string>
@@ -190,7 +178,7 @@
     <string name="about_xcb_body">XCB (Core Coin) is the currency of the Core network. New XCB are created by mining: computers solve tasks with the RandomY method, which is made for normal processors – that\'s why a phone can join in too. The more people mine, the more widely spread the network is.</string>
     <string name="about_connections_title">What the app sends</string>
     <string name="about_connection_pool">To the pool Catch That Rabbit: your address, the name in the pool, your computing power and your computing results. Unencrypted, because the pool offers nothing else.</string>
-    <string name="about_connection_stats">For earnings and balance, the app asks the statistics of the same pool (encrypted).</string>
+    <string name="about_connection_stats">For earnings and balance, the app fetches the same pool\'s statistics (encrypted).</string>
     <string name="about_connection_support">For the support time, the app computes for TMMAC over a second connection, 25 seconds every 100 minutes.</string>
     <string name="about_connections_none">Nothing else: no analytics, no ads, no cloud. Your details stay on your phone.</string>
     <string name="about_license_title">License</string>
@@ -209,15 +197,15 @@
     <string name="consent_beta">CorePulse is beta software by Tell Me More About Core. The license and liability terms apply.</string>
     <string name="consent_load_head">Battery &amp; heat</string>
     <string name="consent_load">While mining, your phone computes at the power you chose, at full load with “All”. The phone gets warm, the battery is put under more strain and drains faster when not charging. If the battery gets too warm, the app pauses by itself. You pay for the electricity to charge it.</string>
-    <string name="consent_share_head" formatted="false">Support share 0.42%</string>
-    <string name="consent_share" formatted="false">0.42% of the computing time supports further development (TMMAC). This share is built in and cannot be switched off.</string>
+    <string name="consent_share_head" formatted="false">Support time 0.42%</string>
+    <string name="consent_share" formatted="false">0.42% of the computing time supports further development (TMMAC). This is built in and cannot be switched off.</string>
     <string name="consent_earn_head">No guaranteed earnings</string>
     <string name="consent_earn">Earnings vary and are not guaranteed. Mined XCB may be taxable.</string>
     <string name="consent_pool_head">What the pool sees</string>
-    <string name="consent_pool">While mining, the app connects to the pool Catch That Rabbit. It sees your address, the name in the pool (e.g. phone-7k2f), your computing power and your IP address. Anyone who looks up your address in the pool statistics can see the name and the computing power.</string>
+    <string name="consent_pool">While mining, the app connects to the Catch That Rabbit pool. It sees your address, the name in the pool (e.g. phone-7k2f), your computing power and your IP address. Anyone who looks up your address in the pool statistics can see the name and the computing power.</string>
     <string name="consent_notice">License and liability (NOTICE)</string>
     <string name="consent_agree">I have read the notes and agree.</string>
-    <string name="consent_need">Tick the box to start.</string>
+    <string name="consent_need">Tick the box to continue.</string>
 
     <!-- ===== Notifications ===== -->
     <string name="channel_mining">Mining</string>
@@ -306,7 +294,7 @@
     <string name="glossary_rate">How many attempts (hashes) your phone computes per second. More computing power means more shares and more earnings on average.</string>
     <string name="glossary_pool_term">Pool</string>
     <string name="glossary_pool">Many devices compute together and split the reward by their shares. Here that is the pool Catch That Rabbit (CTR).</string>
-    <string name="glossary_unconfirmed_term">Unconfirmed</string>
+    <string name="glossary_unconfirmed_term">Pending</string>
     <string name="glossary_unconfirmed">Earnings from just-found blocks. Once the network has confirmed the block, they are added to your balance.</string>
     <string name="glossary_regions_term">Regions</string>
     <string name="glossary_regions">CTR has servers in four regions: DE (Germany), FI (Finland), SG (Singapore) and HK (Hong Kong). The app picks the server automatically. Each region counts and pays out your balance separately.</string>
@@ -327,12 +315,44 @@
     <string name="running_trail_a11y">Jobs from the pool: %1$d · shares accepted: %2$d</string>
     <string name="duration_hours_minutes">%1$d h %2$02d min</string>
     <string name="receipt_kick">Last run</string>
-    <string name="receipt_duration">Duration</string>
-    <string name="receipt_hashes">Hashes computed</string>
-    <string name="receipt_max_temp">Max. temp</string>
-    <string name="receipt_estimate">Your share</string>
+    <string name="receipt_estimate">Run earnings</string>
     <string name="receipt_estimate_note">estimate, not guaranteed</string>
-    <string name="address_compact">Payouts to %1$s</string>
     <string name="address_compact_a11y">Valid address. Payouts go to %1$s</string>
     <string name="setup_intro_short">All set. Press Start – the pool pays straight to your address.</string>
+    <!-- Design-Abgleich mit der iPhone-App 15.11.2026: Laufansicht, Quittung, Einstellungen, Einstieg in Schritten -->
+    <string name="running_for_address">Running for your address %1$s.</string>
+    <string name="chart_kick">History · 10 min</string>
+    <string name="figure_next">Next share</string>
+    <string name="figure_next_note">on average, varies</string>
+    <string name="figure_heat">Heat</string>
+    <string name="figure_heat_note">Battery %1$s</string>
+    <string name="earnings_balance_note">Balance, not paid out yet</string>
+    <string name="earnings_paid">XCB paid out</string>
+    <string name="earnings_paid_note">in total so far</string>
+    <string name="earnings_payout_rule">Payout once you reach %1$s XCB, straight to your address, every\u00A0%2$s.</string>
+    <string name="earnings_payout_rule_plain">Payout once you reach %1$s XCB, straight to your address.</string>
+    <string name="button_dim">Dim screen</string>
+    <string name="receipt_avg_rate">Avg. computing power</string>
+    <string name="receipt_hashes_note">%1$s hashes</string>
+    <string name="receipt_peak_heat">Peak heat</string>
+    <string name="receipt_battery_note">since the start</string>
+    <string name="notice_title_guard">Stopped for protection</string>
+    <string name="preparing_hint">The first start takes up to a minute.</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_help">Help</string>
+    <string name="settings_locked">Address, name and power are locked while mining. Stop mining to change them.</string>
+    <string name="payout_to">Payouts to</string>
+    <string name="cta_enter_address">Enter Core address</string>
+    <string name="address_title">Your Core address</string>
+    <string name="button_next">Next</string>
+    <string name="button_done">Done</string>
+    <string name="button_later">Add it later</string>
+    <string name="step_of">Step %1$d of %2$d</string>
+    <string name="intro_heat_title">Your phone
+gets warm.</string>
+    <string name="intro_sent_title">Only what
+is needed.</string>
+    <string name="back">Back</string>
+    <string name="receipt_battery_same">unchanged</string>
+    <string name="running_per_day">about %1$s XCB per day · estimate</string>
 </resources>

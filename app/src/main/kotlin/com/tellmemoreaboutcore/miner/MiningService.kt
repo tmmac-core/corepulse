@@ -99,9 +99,10 @@ class MiningService : Service() {
             supportTest = BuildConfig.DEBUG && java.io.File(filesDir, "support_test").exists()
             noHeatPause = BuildConfig.DEBUG && java.io.File(filesDir, "no_heat_pause").exists()
             if (noHeatPause) MiningState.log(LogEvent(LogKey.TEST_NO_HEAT_PAUSE))
+            val startPercent = batteryPercent()
             MiningState.update { it.copy(
                     phase = MiningState.Phase.PREPARING, notice = null, accepted = 0, rejected = 0, cooling = false,
-                    startedAtMs = System.currentTimeMillis(), maxTempC = null, summary = null, batteryPercent = null, history = emptyList(), measurements = 0, trail = "", events = 0, prepStep = 0, hashes = 0, lastShareAtMs = 0, charging = null, batteryRefPercent = null, batteryRefAtMs = 0,
+                    startedAtMs = System.currentTimeMillis(), maxTempC = null, summary = null, batteryPercent = null, history = emptyList(), measurements = 0, trail = "", events = 0, prepStep = 0, hashes = 0, lastShareAtMs = 0, charging = null, batteryRefPercent = null, batteryRefAtMs = 0, batteryStartPercent = startPercent,
                     netBytesAtStart = appNetBytes(),
                 ) }
             wakeLock = (getSystemService(POWER_SERVICE) as PowerManager)
@@ -286,6 +287,7 @@ class MiningService : Service() {
                     charging = plugged,
                     batteryRefPercent = if (resetRef) percent else it.batteryRefPercent,
                     batteryRefAtMs = if (resetRef) wallNow else it.batteryRefAtMs,
+                    batteryStartPercent = it.batteryStartPercent ?: percent,
                     hashrate = rate, hashes = h, batteryTempC = temp, thermalStatus = thermal, batteryPercent = percent,
                     maxTempC = listOfNotNull(it.maxTempC, temp).maxOrNull(),
                     // Nur echte Rechenphasen in die Kurve: Pause/ohne Pool waeren Nullen, die wie ein Absturz aussehen
@@ -456,8 +458,13 @@ class MiningService : Service() {
     /** [engineHashes]: Endstand der gestoppten Engine, zaehlt auch die Hashes seit der letzten 10-s-Messung. */
     private fun summaryOf(s: MiningState.Snapshot, engineHashes: Long?): RunSummary? {
         if (s.startedAtMs == 0L) return null
-        val minutes = ((System.currentTimeMillis() - s.startedAtMs) / 60_000).coerceAtLeast(0)
-        return RunSummary(minutes, s.accepted, s.maxTempC, maxOf(s.hashes, engineHashes ?: 0))
+        val duration = (System.currentTimeMillis() - s.startedAtMs).coerceAtLeast(0)
+        return RunSummary(
+            duration / 60_000, s.accepted, s.maxTempC, maxOf(s.hashes, engineHashes ?: 0),
+            startedAtMs = s.startedAtMs, durationMs = duration, rejected = s.rejected,
+            // Endstand frisch lesen: die letzte 10-s-Messung kann aelter sein
+            batteryStart = s.batteryStartPercent, batteryEnd = batteryPercent() ?: s.batteryPercent,
+        )
     }
 
     /**

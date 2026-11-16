@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Türkçe. Ton: sade sözcükler, samimi "sen" (Almancadaki "du" gibi).
+    Her dilde aynı kalır: XCB, Core, CorePass, Catch That Rabbit, TMMAC, H/s, PPLNS.
+    Begriffe: Mining = madencilik, Share = pay, Pool = havuz, Support-Anteil = destek süresi (nicht "destek payı":
+    "pay" ist schon der Share), Rechenleistung = işlem gücü. Prozent steht im Türkischen vor der Zahl (%50),
+    Dezimalkomma (0,42). Nach Zahlen bleibt das Nomen in der Einzahl ("4 çekirdek").
+    Von Claude übersetzt (16.11.2026), Gegenlesen durch Muttersprachler steht aus.
+-->
+<resources>
+    <!-- ===== Allgemein: Zahlen mit Einheit, Dauer, "vor …" ===== -->
+    <string name="value_percent">%%%1$d</string>
+    <string name="value_celsius">%1$.0f\u00A0°C</string>
+    <string name="duration_approx">~%1$s</string>
+    <string name="duration_seconds">%1$d sn</string>
+    <string name="duration_minutes">%1$d dk</string>
+    <string name="duration_hours">%1$d sa</string>
+    <string name="ago_just_now">az önce</string>
+    <string name="ago_minutes">%1$d dk önce</string>
+    <string name="ago_hours_minutes">%1$d sa %2$d dk önce</string>
+    <string name="status_stopping">Durduruluyor …</string>
+    <string name="status_preparing">Hazırlanıyor …</string>
+    <string name="support_text" formatted="false">İşlem süresinin %0,42\'si geliştirmeyi destekler (TMMAC): her 100 dakikada 25 saniye.</string>
+
+    <!-- ===== Start: Adresse ===== -->
+    <string name="setup_title">Telefonun\nXCB kazıyor.</string>
+    <string name="setup_intro">XCB (Core Coin), Core ağının para birimidir. Telefonun Catch That Rabbit havuzuna katılır: orada birçok cihaz birlikte hesaplar ve ödülü paylaşır. Havuz ödemeyi bu uygulama üzerinden değil, doğrudan adresine yapar. Hesap yok, izleme yok.</string>
+    <string name="setup_pool_link">Havuzda görüntüle</string>
+    <string name="address_kick">Adres</string>
+    <string name="address_paste">Yapıştır</string>
+    <string name="address_valid_payout_to">Geçerli. Ödemeler şu adrese gider:</string>
+    <string name="address_valid_payout_to_address">Geçerli. Ödemeler şu adrese gider:\n%1$s</string>
+    <string name="address_hint_empty">CorePass\'tan veya başka bir cüzdandan (XCB\'lerin için uygulama) kopyala</string>
+    <string name="address_hint_testnet">Bu bir test ağı adresi. Madencilik için cb ile başlayan bir adres gerekir.</string>
+    <string name="address_hint_wrong_checksum">Bir karakter yanlış. Lütfen adresi yazmak yerine kopyala.</string>
+    <string name="address_hint_wrong_format">Bu bir Core adresi değil. Core adresi cb ile başlar ve 44 karakterdir.</string>
+    <string name="address_scan_button">QR kodu tara</string>
+    <string name="address_scan_privacy">Kamera yalnızca QR kodu okur. Hiçbir şey kaydedilmez.</string>
+    <string name="address_none_title">Henüz Core adresin yok mu?</string>
+    <string name="address_none_body">CorePass uygulamasıyla bir adres alırsın. Uygulamayı kur, oradan adresini kopyala (cb ile başlar) ve buraya yapıştır – ya da QR kodunu tara.</string>
+    <string name="address_corepass_store_link">Google Play\'de CorePass</string>
+
+    <!-- ===== Start: QR-Scan ===== -->
+    <string name="scan_prompt">Core adresinin QR kodu</string>
+    <string name="scan_no_camera_permission">Tarama için kamera izni gerekir. Bunun yerine adresi kopyalayıp yapıştır.</string>
+    <string name="scan_multiple_addresses">Bu QR kodunda birden fazla adres var. Lütfen doğru olanı kopyalayıp yapıştır.</string>
+    <string name="scan_no_address">Bu QR kodunda Core adresi yok.</string>
+
+    <!-- ===== Start: Name im Pool ===== -->
+    <string name="worker_kick">Havuzdaki ad</string>
+    <string name="worker_edit">Değiştir</string>
+    <string name="worker_save">Kaydet</string>
+    <string name="worker_public_warning">Havuz istatistiklerinde herkese açık görünür – gerçek adını kullanma</string>
+    <string name="worker_invalid">En az bir harf veya rakam</string>
+    <string name="worker_explainer">Telefonunun havuz istatistiklerindeki adı budur. Birden fazla cihazı ayırt etmeni sağlar.</string>
+
+    <!-- ===== Start: Leistung und Schalter ===== -->
+    <string name="power_kick">Güç</string>
+    <string name="power_option_all">Tümü</string>
+    <plurals name="power_option_cores">
+        <item quantity="one">%2$d çekirdekten %1$d</item>
+        <item quantity="other">%2$d çekirdekten %1$d</item>
+    </plurals>
+    <plurals name="power_cores_short">
+        <item quantity="one">%d çekirdek</item>
+        <item quantity="other">%d çekirdek</item>
+    </plurals>
+    <string name="power_hint">Daha fazla güç, daha fazla ısı ve daha fazla pil tüketimi demektir. En iyisi prize takılı bir şarj aletiyle şarj etmek, çünkü bilgisayarın USB girişi çoğu zaman yeterli akım vermez. Pil fazla ısınırsa uygulama kendiliğinden duraklar.</string>
+    <string name="toggle_screen_title">Ekranı açık tut</string>
+    <string name="toggle_screen_detail">Uygulama açıkken ekran kısık şekilde açık kalır. Bunun için uygulamayı önde tut. Bu ayar olmadan Android birçok telefonda madenciliği çok yavaşlatır.</string>
+
+    <!-- ===== Start-/Stopp-Knopf ===== -->
+    <string name="start_reason_notifications">Android birazdan uygulamanın bildirim gösterip gösteremeyeceğini soracak. Böylece madenciliğin çalıştığını görür ve istediğin an durdurabilirsin.</string>
+    <string name="start_button">Madenciliği başlat</string>
+    <string name="start_footer" formatted="false">Hesap yok · işlem süresinin %0,42\'si TMMAC için</string>
+    <string name="stop_button">Durdur</string>
+
+    <!-- ===== Mining laeuft ===== -->
+    <string name="running_kick_preparing">Hazırlanıyor</string>
+    <string name="running_kick_stopping">Durduruluyor</string>
+    <string name="running_kick_cooling">Duraklatıldı · soğuyor</string>
+    <string name="running_cooling">Pil soğuyana kadar duraklatıldı. Sonra kendiliğinden devam eder.</string>
+    <string name="running_kick_support">Destek süresi</string>
+    <string name="running_support">Destek süresi çalışıyor: geliştirme için 25 saniye (TMMAC).</string>
+    <string name="running_kick_waiting">Havuz bekleniyor</string>
+    <string name="running_waiting">Havuza bağlantı yok. Wi-Fi\'yi veya mobil veriyi kontrol et. Ağ geri gelir gelmez madencilik kendiliğinden devam eder.</string>
+    <string name="running_kick_mining">XCB madenciliği · Sunucu %1$s</string>
+    <string name="running_warm">Çalışıyor. Pil %1$.0f\u00A0°C ile ılık – uygulama sıcaklığı izler ve 50\u00A0°C\'de kendiliğinden duraklar.</string>
+    <string name="running_hot">Çalışıyor. Pil %1$.0f\u00A0°C ile sıcak – uygulama sıcaklığı izler ve 50\u00A0°C\'de kendiliğinden duraklar.</string>
+    <string name="running_ok">Çalışıyor. Her şey normal aralıkta.</string>
+    <string name="running_elapsed_a11y">%1$s süredir çalışıyor</string>
+    <string name="running_rate_a11y">saniyede %1$s hash</string>
+    <string name="running_not_computing_a11y">şu anda hesaplamıyor</string>
+    <string name="running_rate_unit">İşlem gücü</string>
+    <string name="running_curve_filling">Grafik doluyor …</string>
+    <string name="running_curve_start">10 dk önce</string>
+    <string name="running_curve_now">şimdi</string>
+    <string name="figure_shares">Pay</string>
+    <string name="figure_battery">Pil</string>
+    <plurals name="share_note_rejected">
+        <item quantity="one">%1$d reddedildi</item>
+        <item quantity="other">%1$d reddedildi</item>
+    </plurals>
+    <string name="share_note_last">sonuncusu %1$s</string>
+    <string name="battery_note_charging">şarj oluyor</string>
+    <string name="battery_note_drain">saatte −%%%1$.0f</string>
+    <string name="temp_normal">normal</string>
+    <string name="temp_warm">ılık</string>
+    <string name="temp_hot">sıcak</string>
+    <string name="running_share_interval">Bu işlem gücüyle ortalama %1$s aralıklarla bir pay bulunur. Bu şansa bağlıdır: bazen daha hızlı, bazen daha yavaş.</string>
+    <string name="running_share_explainer">Pay (İngilizce: share), havuzun emeğinin kanıtı olarak kabul ettiği bir hesaplama sonucudur. Ödülden alacağın kısım buna göre belirlenir.</string>
+    <string name="running_worker_name">Havuzdaki ad: %1$s</string>
+    <string name="how_it_works_show">Nasıl çalışır</string>
+    <string name="running_data_since_start">Başlangıçtan beri veri: %1$s · mobil veriyle de çalışır</string>
+
+    <!-- ===== Ertrag (Pool-Statistik) ===== -->
+    <string name="earnings_unreachable">Havuz istatistiklerine şu anda ulaşılamıyor. Birazdan yeniden denenecek.</string>
+    <string name="earnings_loading">Havuz istatistikleri yükleniyor …</string>
+    <string name="earnings_basis_with_support">Şu anki işlem gücünle, %%%1$.1f havuz ücreti ve destek süresi düşüldükten sonra. Bu bir ortalamadır: gerçek kazanç değişir ve garanti edilmez.</string>
+    <string name="earnings_in_pool">Havuzda</string>
+    <string name="earnings_unavailable">şu anda kullanılamıyor</string>
+    <string name="earnings_unconfirmed">+ %1$s beklemede</string>
+    <string name="earnings_payout">Ödeme</string>
+    <string name="earnings_pool_share">Havuzdaki oranın: %2$s içinde %1$s H/s = %%%3$.3f</string>
+    <string name="earnings_pplns_explainer">Nasıl paylaşılır: havuz bir blok bulduğunda ödülü en son gönderilen paylara göre böler (PPLNS). Ortalama olarak senin kısmın, havuzun toplam işlem gücündeki oranına denk gelir. Bakiyen eşiğe ulaşır ulaşmaz havuz doğrudan adresine öder.</string>
+    <string name="region_incomplete">Bazı havuz bölgelerine ulaşılamıyor – toplama bu bölgeler dahil değil.</string>
+    <string name="region_split">Dağılım: %1$s. Her havuz bölgesi, orada %2$s XCB\'ye ulaşıldığında ayrı öder. Daha küçük bir kalan, orada yeniden madencilik yapana kadar kendi bölgesinde kalır.</string>
+
+    <!-- ===== Abgedunkelter Bildschirm ===== -->
+    <string name="dimmed_wake_action">Aydınlat</string>
+    <string name="dimmed_state_a11y">Madencilik çalışıyor, ekran kısık</string>
+    <string name="dimmed_cooling">Soğuyor</string>
+    <plurals name="dimmed_status">
+        <item quantity="one">%1$s · %2$d pay</item>
+        <item quantity="other">%1$s · %2$d pay</item>
+    </plurals>
+    <string name="dimmed_hint">XCB madenciliği · Aydınlatmak için dokun</string>
+
+    <!-- ===== Details und Log ===== -->
+    <string name="details_show">Ayrıntılar ve günlük</string>
+    <string name="details_trail_title">Blok izi · havuzdan gelen olaylar</string>
+    <string name="details_trail_legend">Kısa çubuk = havuzdan yeni iş · uzun çubuk = pay kabul edildi · gri = destek süresi</string>
+    <string name="details_stats">Pay zorluğu: %1$.0f  ·  Termal: %2$s\n%3$s</string>
+    <string name="details_copy_log">Günlüğü kopyala</string>
+    <string name="details_log_clip_label">Madencilik günlüğü</string>
+
+    <!-- ===== Ueber diese App ===== -->
+    <string name="about_title">Bu uygulama hakkında</string>
+    <string name="about_version">Sürüm %1$s</string>
+    <string name="about_publisher_title">Yayıncı</string>
+    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. Core ekosistemini anlatıyor ve onun için araçlar geliştiriyoruz. Hesap yok, izleme yok. İşlem süresinin %0,42\'si geliştirmeyi destekler.</string>
+    <string name="about_legal_imprint">Künye</string>
+    <string name="about_legal_privacy">Gizlilik politikası</string>
+    <string name="about_feedback">Geri bildirim ve hata bildirimi</string>
+    <string name="about_feedback_hint">Bir hatada günlük yardımcı olur: “%1$s” → “%2$s”, sonra forma yapıştır.</string>
+    <string name="about_xcb_title">XCB nedir?</string>
+    <string name="about_xcb_body">XCB (Core Coin), Core ağının para birimidir. Yeni XCB\'ler madencilikle oluşur: bilgisayarlar, normal işlemciler için tasarlanmış RandomY yöntemiyle görevler çözer – bu yüzden bir telefon da katılabilir. Ne kadar çok kişi madencilik yaparsa ağ o kadar geniş dağılır.</string>
+    <string name="about_connections_title">Uygulama ne gönderir</string>
+    <string name="about_connection_pool">Catch That Rabbit havuzuna: adresin, havuzdaki ad, işlem gücün ve hesaplama sonuçların. Şifresiz, çünkü havuz başka bir seçenek sunmuyor.</string>
+    <string name="about_connection_stats">Kazanç ve bakiye için uygulama aynı havuzun istatistiklerini sorgular (şifreli).</string>
+    <string name="about_connection_support">Destek süresi için uygulama ikinci bir bağlantı üzerinden TMMAC adına hesaplar: her 100 dakikada 25 saniye.</string>
+    <string name="about_connections_none">Başka hiçbir şey: analiz yok, reklam yok, bulut yok. Bilgilerin telefonunda kalır.</string>
+    <string name="about_license_title">Lisans</string>
+    <string name="about_license_body">Açık kaynak yazılım (GPL-3.0). Bunun üzerine geliştirip dağıtan herkes kaynak kodunu yayımlamalı ve “Based on CorePulse by TMMAC” ifadesini göstermelidir.</string>
+    <string name="about_source">Bu sürümün kaynak kodu</string>
+    <string name="about_license_notice">Lisans ve ek koşullar (NOTICE)</string>
+    <string name="about_license_gpl">GPL-3.0 (tam metin)</string>
+    <string name="about_oss_title">Tüm lisans metinleri</string>
+    <string name="about_license_missing">Lisans metni eksik.</string>
+
+    <!-- ===== Zustimmung vor dem ersten Start (ConsentTest hasht diese Texte) ===== -->
+    <string name="consent_kick">Başlamadan önce</string>
+    <string name="consent_title">Bilmen gerekenler</string>
+    <string name="consent_beta_head">Beta yazılım</string>
+    <string name="consent_beta">CorePulse, Tell Me More About Core tarafından sunulan bir beta yazılımdır. Lisans ve sorumluluk koşulları geçerlidir.</string>
+    <string name="consent_load_head">Pil ve ısı</string>
+    <string name="consent_load">Madencilik sırasında telefonun seçtiğin güçte, “Tümü” seçiliyken tam yükte hesaplar. Telefon ısınır, pil daha fazla zorlanır ve şarj edilmiyorsa daha hızlı boşalır. Pil fazla ısınırsa uygulama kendiliğinden duraklar. Şarj için harcanan elektriği sen ödersin.</string>
+    <string name="consent_share_head" formatted="false">Destek süresi %0,42</string>
+    <string name="consent_share" formatted="false">İşlem süresinin %0,42\'si geliştirmeyi destekler (TMMAC). Bu oran sabittir ve kapatılamaz.</string>
+    <string name="consent_earn_head">Garantili kazanç yok</string>
+    <string name="consent_earn">Kazançlar dalgalanır ve garanti edilmez. Kazılan XCB vergiye tabi olabilir.</string>
+    <string name="consent_pool_head">Havuz ne görür</string>
+    <string name="consent_pool">Madencilik sırasında uygulama Catch That Rabbit havuzuna bağlanır. Havuz şunları görür: adresin, havuzdaki adın (ör. phone-7k2f), işlem gücün ve IP adresin. Havuz istatistiklerinde adresini arayan herkes adı ve işlem gücünü görebilir.</string>
+    <string name="consent_notice">Lisans ve sorumluluk (NOTICE)</string>
+    <string name="consent_agree">Yukarıdaki bilgileri okudum ve kabul ediyorum.</string>
+    <string name="consent_need">Devam etmek için kutuyu işaretle.</string>
+
+    <!-- ===== Benachrichtigungen ===== -->
+    <string name="channel_mining">Madencilik</string>
+    <string name="channel_alerts">Uyarılar</string>
+    <string name="notif_title">XCB madenciliği</string>
+    <string name="notif_action_stop">Durdur</string>
+    <string name="notif_cooling">Soğuyor – sonra kendiliğinden devam eder</string>
+    <string name="notif_support">Destek süresi çalışıyor (TMMAC) · %1$s H/s</string>
+    <plurals name="notif_status">
+        <item quantity="one">%1$s H/s · %2$d pay</item>
+        <item quantity="other">%1$s H/s · %2$d pay</item>
+    </plurals>
+    <string name="alert_heat_title">Soğuma molası</string>
+    <string name="alert_heat_text">Pil ısındı. Madencilik pil soğuyana kadar duraklar, sonra kendiliğinden devam eder.</string>
+    <string name="alert_stopped_title">Madencilik durdu</string>
+
+    <!-- ===== Stoppgruende ===== -->
+    <string name="notice_error">Madencilik bir hata nedeniyle durdu. “Ayrıntılar ve günlük” bölümüne bak.</string>
+    <string name="notice_low_memory">Yeterli boş bellek yok (en az %1$d MB). Diğer uygulamaları kapat ve madenciliği yeniden başlat.</string>
+    <string name="notice_start_failed">Başlatma başarısız oldu. Diğer uygulamaları kapat ve yeniden başlat. Teknik neden: %1$s</string>
+    <string name="notice_login_rejected">Havuz bu adresi kabul etmiyor. Lütfen kontrol et (en iyisi CorePass\'tan kopyala).</string>
+    <string name="notice_low_battery">Pil %%%1$d. Pil tamamen boşalmasın diye madencilik durduruldu. Şarj aletini tak, hemen devam edebilirsin.</string>
+    <string name="notice_too_hot">Telefonun fazla ısındığı için madencilik durdu (pil %1$s\u00A0°C). Soğumasını bekle, sonra tercihen daha düşük güçle yeniden başlat.</string>
+    <string name="notice_no_temperature">Bu telefonda sıcaklık ölçülemiyor. Sıcaklık olmadan uygulama ısıyı gözetemez, bu yüzden burada madencilik yapmaz.</string>
+    <string name="notice_not_cooling">Telefonun 15 dakikalık molada soğumadı, bu yüzden madencilik durdu. Daha serin bir yere koy veya şarj aletini çıkar, sonra yeniden başlat.</string>
+    <string name="notice_no_workers">Madencilik bu cihazda hesaplama yapamadı. “Ayrıntılar ve günlük” bölümüne bak.</string>
+
+    <!-- ===== Zusammenfassung nach dem Stopp ===== -->
+    <string name="summary_under_minute">1 dk\'dan az</string>
+    <plurals name="summary_shares">
+        <item quantity="one">%1$d pay kabul edildi</item>
+        <item quantity="other">%1$d pay kabul edildi</item>
+    </plurals>
+    <string name="summary_max_temp">en yüksek %1$.0f\u00A0°C</string>
+    <string name="summary_stopped">%1$s sonra durduruldu · %2$s</string>
+    <string name="summary_stopped_with_temp">%1$s sonra durduruldu · %2$s · %3$s</string>
+
+    <!-- ===== Log in der App (Details und Log), ein Text je LogKey ===== -->
+    <string name="log_share_dropped_no_pool">Pay atıldı: havuz bağlantısı yok (nonce 0x%1$016x)</string>
+    <string name="log_server_choice">Sunucu seçimi: %1$s</string>
+    <string name="log_server_choice_home">Sunucu seçimi: %1$s, ana sunucu %2$s</string>
+    <string name="log_back_to_home">Ana sunucuya dönüldü: %1$s %2$d ms (%3$s yerine; her bölge kendi bakiyesini tutar)</string>
+    <string name="log_shares_unanswered">Havuz yanıtı olmayan paylar: %1$d (bağlantı koptu)</string>
+    <string name="log_unreadable_pool_message">Okunamayan havuz mesajı: %1$s</string>
+    <string name="log_pool_error">Havuz hatası (id=%1$s): %2$s</string>
+    <string name="log_job_unreadable">Okunamayan iş: %1$s</string>
+    <string name="log_support_failed">Destek süresi sona erdi: %1$s %2$s</string>
+    <string name="log_support_login_rejected">Destek süresi: havuz girişi reddediyor (%1$s)</string>
+    <string name="log_support_skipped">Destek süresi bu turda atlandı: havuza ulaşılamıyor</string>
+    <string name="log_support_running">Destek süresi çalışıyor (%1$d sn)</string>
+    <string name="log_support_done">Destek süresi sona erdi, TMMAC için hash: %1$d</string>
+    <string name="log_randomy_ready">RandomY %1$.1f sn içinde hazır, JIT=%2$s, FullMem=%3$s, HardAES=%4$s, öz sınama tamam</string>
+    <string name="log_selftest_retry_without_jit">%1$s → JIT olmadan yeniden deneniyor</string>
+    <string name="log_stop_thread_still_running">Durdurma: bir iş parçacığı hâlâ hesaplıyor, RandomY belleği bitince serbest bırakılır</string>
+    <string name="log_thread_no_vm">İş parçacığı %1$d: VM oluşturulamadı</string>
+    <string name="log_thread_selftest_failed">İş parçacığı %1$d: %2$s → iş parçacığı hesaplamıyor</string>
+    <string name="log_thread_ended">İş parçacığı %1$d: %2$s %3$s ile sona erdi</string>
+    <string name="log_test_no_heat_pause">TEST: uygulamanın ısı molası ve güvenlik durdurması kapalı, yalnızca Android korur</string>
+    <string name="log_error">Hata: %1$s %2$s</string>
+    <string name="log_starting">Başlatılıyor: işçi %1$s, iş parçacığı: %2$d, %3$s %4$s, Android %5$s, boş RAM %6$d / %7$d MiB</string>
+    <string name="log_share_found">Pay bulundu (nonce %1$016x)</string>
+    <string name="log_start_failed">Başlatma başarısız: %1$s</string>
+    <string name="log_support_share_accepted">Destek süresi payı kabul edildi</string>
+    <string name="log_support_share_rejected">Destek süresi payı reddedildi: %1$s</string>
+    <string name="log_support_on">Destek süresi açık (%%%1$.2f)</string>
+    <string name="log_connected">%1$s sunucusunda oturum açıldı</string>
+    <string name="log_disconnected">Bağlantı kesildi: %1$s</string>
+    <string name="log_login_rejected">Giriş reddedildi: %1$s</string>
+    <string name="log_share_accepted">Pay kabul edildi</string>
+    <string name="log_share_rejected">Pay reddedildi: %1$s</string>
+    <string name="log_measurement">Ölçüm %1$.0f H/s, iş parçacığı %2$d, pil %3$.1f\u00A0°C, termal %4$s</string>
+    <string name="log_support_balance">Destek dengesi: TMMAC hash %1$d / %2$d (%%%3$.3f), süre %4$.0f / %5$.0f sn (%%%6$.3f)</string>
+    <string name="log_heat_pause">Isı molası (pil %1$.1f\u00A0°C, termal %2$s)</string>
+    <string name="log_heat_resume">%1$.0f sn ısı molasından sonra devam ediliyor</string>
+    <string name="log_stopped_with_notice">Durduruldu: %1$s</string>
+    <string name="log_stopped">Durduruldu</string>
+    <string name="log_pool_stats_failed">Havuz istatistikleri kullanılamıyor: %1$s</string>
+
+    <!-- ===== Begriffe ===== -->
+    <string name="glossary_kick">Terimler</string>
+    <string name="glossary_rate">Telefonunun saniyede kaç deneme (hash) hesapladığı. Daha fazla işlem gücü, ortalamada daha fazla pay ve daha fazla kazanç demektir.</string>
+    <string name="glossary_pool_term">Havuz</string>
+    <string name="glossary_pool">Birçok cihaz birlikte hesaplar ve ödülü paylarına göre bölüşür. Buradaki havuz Catch That Rabbit\'tir (CTR).</string>
+    <string name="glossary_unconfirmed_term">Beklemede</string>
+    <string name="glossary_unconfirmed">Yeni bulunan bloklardan gelen kazanç. Ağ bloğu onayladığında bakiyene eklenir.</string>
+    <string name="glossary_regions_term">Bölgeler</string>
+    <string name="glossary_regions">CTR\'nin dört bölgede sunucusu var: DE (Almanya), FI (Finlandiya), SG (Singapur) ve HK (Hong Kong). Uygulama sunucuyu kendiliğinden seçer. Her bölge bakiyeni ayrı sayar ve ayrı öder.</string>
+    <string name="language_title">Dil</string>
+    <string name="language_system">Telefon ayarı (%1$s)</string>
+    <string name="language_a11y">Dili değiştir, şu anda %1$s</string>
+    <string name="state_expanded">genişletildi</string>
+    <string name="state_collapsed">daraltıldı</string>
+    <string name="running_curve_a11y">Son seyir: en düşük %1$s, en yüksek %2$s, şimdi saniyede %3$s hash</string>
+    <string name="start_step_memory">Bellek denetleniyor</string>
+    <string name="start_step_build">Yaklaşık 260 MB çalışma belleği kuruluyor ve sınanıyor</string>
+    <string name="start_step_server">En hızlı sunucu aranıyor</string>
+    <string name="start_step_job">Havuzdan ilk iş alınıyor</string>
+    <string name="start_step_a11y">Adım %1$d / %2$d: %3$s</string>
+    <string name="running_trail_a11y">Havuzdan gelen işler: %1$d · kabul edilen paylar: %2$d</string>
+    <string name="duration_hours_minutes">%1$d sa %2$02d dk</string>
+    <string name="receipt_kick">Son çalışma</string>
+    <string name="receipt_estimate">Çalışma kazancı</string>
+    <string name="receipt_estimate_note">tahmin, garanti değil</string>
+    <string name="address_compact_a11y">Geçerli adres. Ödemeler şu adrese gider: %1$s</string>
+    <string name="setup_intro_short">Her şey hazır. Başlat\'a basman yeterli – havuz doğrudan adresine öder.</string>
+    <string name="running_for_address">%1$s adresin için çalışıyor.</string>
+    <string name="chart_kick">Seyir · 10 dk</string>
+    <string name="figure_next">Sonraki pay</string>
+    <string name="figure_next_note">ortalama, değişir</string>
+    <string name="figure_heat">Isı</string>
+    <string name="figure_heat_note">Pil %1$s</string>
+    <string name="earnings_balance_note">Bakiye, henüz ödenmedi</string>
+    <string name="earnings_paid">Ödenen XCB</string>
+    <string name="earnings_paid_note">bugüne kadar toplam</string>
+    <string name="earnings_payout_rule">%1$s XCB\'den itibaren doğrudan adresine ödeme, her %2$s.</string>
+    <string name="earnings_payout_rule_plain">%1$s XCB\'den itibaren doğrudan adresine ödeme.</string>
+    <string name="button_dim">Ekranı kıs</string>
+    <string name="receipt_avg_rate">Ort. işlem gücü</string>
+    <string name="receipt_hashes_note">%1$s hash</string>
+    <string name="receipt_peak_heat">En yüksek ısı</string>
+    <string name="receipt_battery_note">başlangıçtan beri</string>
+    <string name="notice_title_guard">Koruma için durduruldu</string>
+    <string name="preparing_hint">İlk başlatma bir dakikaya kadar sürer.</string>
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_help">Yardım</string>
+    <string name="settings_locked">Madencilik sırasında adres, ad ve güç kilitlidir. Değiştirmek için madenciliği durdur.</string>
+    <string name="payout_to">Ödeme adresi</string>
+    <string name="cta_enter_address">Core adresini gir</string>
+    <string name="address_title">Core adresin</string>
+    <string name="button_next">İleri</string>
+    <string name="button_done">Bitti</string>
+    <string name="button_later">Sonra ekle</string>
+    <string name="step_of">Adım %1$d / %2$d</string>
+    <string name="intro_heat_title">Telefonun\nısınır.</string>
+    <string name="intro_sent_title">Yalnızca\ngerekli olan.</string>
+    <string name="back">Geri</string>
+    <string name="receipt_battery_same">değişmedi</string>
+    <string name="running_per_day">günde yaklaşık %1$s XCB · tahmin</string>
+</resources>

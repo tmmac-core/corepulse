@@ -20,7 +20,7 @@
     <string name="ago_hours_minutes">acum %1$d h %2$d min</string>
     <string name="status_stopping">Se oprește …</string>
     <string name="status_preparing">Se pregătește …</string>
-    <string name="support_text" formatted="false">0,42% din timpul de calcul susține dezvoltarea în continuare (TMMAC): 25 de secunde la fiecare 100 de minute.</string>
+    <string name="support_text" formatted="false">0,42% din timpul de calcul susține continuarea dezvoltării (TMMAC): 25 de secunde la fiecare 100 de minute.</string>
 
     <!-- ===== Ecran de start: adresă ===== -->
     <string name="setup_title">Telefonul tău\nminează XCB.</string>
@@ -62,26 +62,28 @@
         <item quantity="few">%1$d din %2$d nuclee</item>
         <item quantity="other">%1$d din %2$d de nuclee</item>
     </plurals>
+    <plurals name="power_cores_short">
+        <item quantity="one">%d nucleu</item>
+        <item quantity="few">%d nuclee</item>
+        <item quantity="other">%d de nuclee</item>
+    </plurals>
     <string name="power_hint">Mai multă putere înseamnă mai multă căldură și mai mult consum de baterie. Cel mai bine încarcă de la un încărcător de priză, pentru că un port USB de calculator dă adesea prea puțin curent. Dacă bateria se încălzește prea tare, aplicația face singură pauză.</string>
     <string name="toggle_screen_title">Ecranul rămâne aprins</string>
     <string name="toggle_screen_detail">Ecranul rămâne aprins, estompat, cât timp aplicația e deschisă. Lasă aplicația deschisă în prim-plan. Fără asta, pe multe telefoane Android încetinește mult minarea.</string>
 
     <!-- ===== Buton start / stop ===== -->
-    <string name="start_reason_no_address">Introdu mai întâi o adresă Core validă</string>
-    <string name="start_reason_no_name">Introdu un nume pentru pool</string>
     <string name="start_reason_notifications">Android te va întreba imediat dacă aplicația poate afișa notificări. Așa vezi că minarea rulează și o poți opri oricând.</string>
     <string name="start_button">Pornește minarea</string>
-    <string name="start_footer" formatted="false">Pool Catch That Rabbit · fără cont · cotă de susținere 0,42%</string>
+    <string name="start_footer" formatted="false">Fără cont · 0,42% din timpul de calcul pentru TMMAC</string>
     <string name="stop_button">Oprește</string>
 
     <!-- ===== Minare în curs ===== -->
     <string name="running_kick_preparing">Pregătire</string>
-    <string name="running_preparing">Se pregătește … prima pornire durează până la un minut.</string>
     <string name="running_kick_stopping">Se oprește</string>
     <string name="running_kick_cooling">Pauză · răcire</string>
-    <string name="running_cooling">Pauză până se răcește bateria. Apoi continuă singur.</string>
+    <string name="running_cooling">Pauză până se răcește bateria. Apoi minarea continuă singură.</string>
     <string name="running_kick_support">Cota de susținere</string>
-    <string name="running_support">Cota de susținere rulează: 25 de secunde pentru dezvoltarea în continuare (TMMAC).</string>
+    <string name="running_support">Cota de susținere rulează: 25 de secunde pentru continuarea dezvoltării (TMMAC).</string>
     <string name="running_kick_waiting">Așteaptă pool-ul</string>
     <string name="running_waiting">Nicio conexiune la pool. Verifică Wi-Fi-ul sau datele mobile. Minarea continuă singură imediat ce rețeaua revine.</string>
     <string name="running_kick_mining">Minează XCB · Server %1$s</string>
@@ -91,21 +93,18 @@
     <string name="running_elapsed_a11y">Rulează de %1$s</string>
     <string name="running_rate_a11y">%1$s hash-uri pe secundă</string>
     <string name="running_not_computing_a11y">nu calculează acum</string>
-    <string name="running_rate_detail">Hash-uri pe secundă · H/s</string>
     <string name="running_rate_unit">Putere de calcul</string>
     <string name="running_curve_filling">Graficul se umple …</string>
     <string name="running_curve_start">acum 10 min</string>
     <string name="running_curve_now">acum</string>
-    <string name="figure_shares">Shares</string>
+    <string name="figure_shares">Share-uri</string>
     <string name="figure_battery">Baterie</string>
-    <string name="figure_temp">Temp</string>
     <plurals name="share_note_rejected">
         <item quantity="one">%1$d respins</item>
         <item quantity="few">%1$d respinse</item>
         <item quantity="other">%1$d de respinse</item>
     </plurals>
     <string name="share_note_last">ultimul %1$s</string>
-    <string name="share_note_first">primul în %1$s</string>
     <string name="battery_note_charging">se încarcă</string>
     <string name="battery_note_drain">−%1$.0f%% pe oră</string>
     <string name="temp_normal">normal</string>
@@ -118,26 +117,17 @@
     <string name="running_data_since_start">Date de la pornire: %1$s · merge și pe date mobile</string>
 
     <!-- ===== Câștig (statistici pool) ===== -->
-    <string name="earnings_kick">Câștig · estimare</string>
     <string name="earnings_unreachable">Statisticile pool-ului nu sunt accesibile acum. Se reîncearcă în curând.</string>
     <string name="earnings_loading">Se încarcă statisticile pool-ului …</string>
-    <string name="earnings_per_day_a11y">aproximativ %1$s XCB pe zi</string>
-    <string name="earnings_no_estimate_a11y">încă nicio estimare</string>
-    <string name="earnings_per_day_unit">XCB pe zi</string>
     <string name="earnings_basis_with_support">La puterea ta de calcul actuală, după taxa pool-ului de %1$.1f%% și cota de susținere. O medie: câștigul real variază și nu este garantat.</string>
     <string name="earnings_in_pool">În pool</string>
     <string name="earnings_unavailable">indisponibil acum</string>
-    <string name="earnings_unconfirmed">+ %1$s neconfirmat</string>
-    <string name="earnings_not_paid_yet">XCB, încă neplătit</string>
+    <string name="earnings_unconfirmed">+ %1$s în așteptare</string>
     <string name="earnings_payout">Plată</string>
-    <string name="earnings_payout_from">de la %1$s</string>
-    <string name="earnings_payout_interval">XCB, plătit la fiecare %1$s</string>
     <string name="earnings_pool_share">Partea ta din pool: %1$s H/s din %2$s = %3$.3f%%</string>
     <string name="earnings_pplns_explainer">Cum se împarte: când pool-ul găsește un bloc, împarte recompensa după share-urile trimise cel mai recent (PPLNS). În medie, partea ta corespunde cotei tale din puterea de calcul a pool-ului. Imediat ce soldul tău atinge pragul, pool-ul plătește direct la adresa ta.</string>
     <string name="region_incomplete">Nu toate regiunile pool-ului sunt accesibile – total fără regiunea lipsă.</string>
     <string name="region_split">Împărțit pe %1$s. Fiecare regiune a pool-ului plătește separat imediat ce acolo se ating %2$s XCB. Un rest mai mic rămâne în regiunea lui până când minezi din nou acolo.</string>
-    <string name="region_short">%1$s · plată pe regiune de la %2$s XCB</string>
-    <string name="balance_payout_line">Plată de la %1$s XCB direct la adresa ta · plătit până acum %2$s XCB</string>
 
     <!-- ===== Ecran estompat ===== -->
     <string name="dimmed_wake_action">Luminează</string>
@@ -160,10 +150,9 @@
 
     <!-- ===== Despre aplicație ===== -->
     <string name="about_title">Despre aplicație</string>
-    <string name="about_back">← Înapoi</string>
     <string name="about_version">Versiunea %1$s</string>
     <string name="about_publisher_title">Editor</string>
-    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. Explicăm ecosistemul Core și construim instrumente pentru el. Fără cont, fără urmărire. 0,42% din timpul de calcul susține dezvoltarea în continuare.</string>
+    <string name="about_publisher_body" formatted="false">TMMAC – Tell Me More About Core. Explicăm ecosistemul Core și construim instrumente pentru el. Fără cont, fără urmărire. 0,42% din timpul de calcul susține continuarea dezvoltării.</string>
     <string name="about_legal_imprint">Informații legale</string>
     <string name="about_legal_privacy">Politica de confidențialitate</string>
     <string name="about_feedback">Feedback și raportare erori</string>
@@ -192,21 +181,21 @@
     <string name="consent_load_head">Baterie și căldură</string>
     <string name="consent_load">La minare, telefonul tău calculează cu puterea aleasă, iar la „Toate” la capacitate maximă. Telefonul se încălzește, bateria este solicitată mai mult și se descarcă mai repede când nu e la încărcat. Dacă bateria se încălzește prea tare, aplicația face singură pauză. Curentul pentru încărcare îl plătești tu.</string>
     <string name="consent_share_head" formatted="false">Cotă de susținere 0,42%</string>
-    <string name="consent_share" formatted="false">0,42% din timpul de calcul susține dezvoltarea în continuare (TMMAC). Această cotă de susținere este integrată fix și nu poate fi dezactivată.</string>
+    <string name="consent_share" formatted="false">0,42% din timpul de calcul susține continuarea dezvoltării (TMMAC). Această cotă de susținere este integrată permanent și nu poate fi dezactivată.</string>
     <string name="consent_earn_head">Câștig negarantat</string>
     <string name="consent_earn">Câștigurile variază și nu sunt garantate. XCB minați pot fi impozabili.</string>
     <string name="consent_pool_head">Ce vede pool-ul</string>
     <string name="consent_pool">La minare, aplicația se conectează la pool-ul Catch That Rabbit. Acesta vede adresa ta, numele în pool (de ex. phone-7k2f), puterea ta de calcul și adresa ta IP. Numele și puterea de calcul le poate vedea oricine îți caută adresa în statisticile pool-ului.</string>
     <string name="consent_notice">Licență și răspundere (NOTICE)</string>
     <string name="consent_agree">Am citit informațiile și sunt de acord.</string>
-    <string name="consent_need">Bifează căsuța pentru a porni.</string>
+    <string name="consent_need">Bifează căsuța pentru a continua.</string>
 
     <!-- ===== Notificări ===== -->
     <string name="channel_mining">Minare</string>
     <string name="channel_alerts">Avertizări</string>
     <string name="notif_title">Minează XCB</string>
     <string name="notif_action_stop">Oprește</string>
-    <string name="notif_cooling">Se răcește – apoi continuă singur</string>
+    <string name="notif_cooling">Se răcește – apoi continuă singură</string>
     <string name="notif_support">Cota de susținere rulează (TMMAC) · %1$s H/s</string>
     <plurals name="notif_status">
         <item quantity="one">%1$s H/s · %2$d share</item>
@@ -283,7 +272,7 @@
     <string name="glossary_rate">Câte încercări de calcul (hash-uri) face telefonul tău pe secundă. Mai multă putere de calcul înseamnă în medie mai multe share-uri și mai mult câștig.</string>
     <string name="glossary_pool_term">Pool</string>
     <string name="glossary_pool">Multe dispozitive calculează împreună și împart recompensa după share-urile lor. Aici este pool-ul Catch That Rabbit (CTR).</string>
-    <string name="glossary_unconfirmed_term">Neconfirmat</string>
+    <string name="glossary_unconfirmed_term">În așteptare</string>
     <string name="glossary_unconfirmed">Câștig din blocuri abia găsite. După ce rețeaua confirmă blocul, se adaugă la soldul tău.</string>
     <string name="glossary_regions_term">Regiuni</string>
     <string name="glossary_regions">CTR are servere în patru regiuni: DE (Germania), FI (Finlanda), SG (Singapore) și HK (Hong Kong). Aplicația alege serverul automat. Fiecare regiune îți numără și îți plătește soldul separat.</string>
@@ -303,13 +292,45 @@
     <string name="start_step_a11y">Pasul %1$d din %2$d: %3$s</string>
     <string name="running_trail_a11y">Joburi de la pool: %1$d · share-uri acceptate: %2$d</string>
     <string name="duration_hours_minutes">%1$d h %2$02d min</string>
-    <string name="receipt_kick">Ultima rulare</string>
-    <string name="receipt_duration">Durată</string>
-    <string name="receipt_hashes">Hash-uri calculate</string>
-    <string name="receipt_max_temp">Temp. max.</string>
-    <string name="receipt_estimate">Partea ta</string>
+    <string name="receipt_kick">Ultima sesiune</string>
+    <string name="receipt_estimate">Câștigul sesiunii</string>
     <string name="receipt_estimate_note">estimare, fără garanție</string>
-    <string name="address_compact">Plăți către %1$s</string>
     <string name="address_compact_a11y">Adresă validă. Plățile merg către %1$s</string>
     <string name="setup_intro_short">Totul e pregătit. Apasă Start – pool-ul plătește direct la adresa ta.</string>
+    <!-- Design-Abgleich mit der iPhone-App 15.11.2026: Laufansicht, Quittung, Einstellungen, Einstieg in Schritten -->
+    <string name="running_for_address">Rulează pentru adresa ta %1$s.</string>
+    <string name="chart_kick">Evoluție · 10 min</string>
+    <string name="figure_next">Următorul share</string>
+    <string name="figure_next_note">în medie, variază</string>
+    <string name="figure_heat">Căldură</string>
+    <string name="figure_heat_note">Baterie %1$s</string>
+    <string name="earnings_balance_note">Sold, încă neplătit</string>
+    <string name="earnings_paid">XCB plătiți</string>
+    <string name="earnings_paid_note">în total până acum</string>
+    <string name="earnings_payout_rule">Plată începând de la %1$s XCB direct la adresa ta, la fiecare\u00A0%2$s.</string>
+    <string name="earnings_payout_rule_plain">Plată începând de la %1$s XCB direct la adresa ta.</string>
+    <string name="button_dim">Întunecă</string>
+    <string name="receipt_avg_rate">Putere medie</string>
+    <string name="receipt_hashes_note">%1$s hash-uri</string>
+    <string name="receipt_peak_heat">Căldură maximă</string>
+    <string name="receipt_battery_note">de la pornire</string>
+    <string name="notice_title_guard">Oprit pentru protecție</string>
+    <string name="preparing_hint">Prima pornire durează până la un minut.</string>
+    <string name="settings_title">Setări</string>
+    <string name="settings_help">Ajutor</string>
+    <string name="settings_locked">Adresa, numele și puterea sunt blocate în timpul minării. Oprește minarea pentru a le modifica.</string>
+    <string name="payout_to">Plăți către</string>
+    <string name="cta_enter_address">Introdu adresa Core</string>
+    <string name="address_title">Adresa ta Core</string>
+    <string name="button_next">Continuă</string>
+    <string name="button_done">Gata</string>
+    <string name="button_later">Adaugă mai târziu</string>
+    <string name="step_of">Pasul %1$d din %2$d</string>
+    <string name="intro_heat_title">Telefonul tău
+se încălzește.</string>
+    <string name="intro_sent_title">Doar strictul
+necesar.</string>
+    <string name="back">Înapoi</string>
+    <string name="receipt_battery_same">neschimbat</string>
+    <string name="running_per_day">aproximativ %1$s XCB pe zi · estimare</string>
 </resources>

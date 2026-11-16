@@ -21,7 +21,7 @@ import java.util.Locale
  */
 internal object AppLanguage {
     /** Sprachen der App (wie localeFilters in app/build.gradle.kts). */
-    val TAGS = listOf("de", "en", "ja", "nl", "ro")
+    val TAGS = listOf("de", "en", "ja", "nl", "ro", "tr")
     private const val PREF = "language"
 
     /** Gewaehlte Sprache, "" = wie das Handy. */

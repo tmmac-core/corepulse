@@ -6,7 +6,6 @@ package com.tellmemoreaboutcore.miner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Text
@@ -17,21 +16,24 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.tellmemoreaboutcore.miner.core.LogEvent
 import com.tellmemoreaboutcore.miner.core.LogKey
 import com.tellmemoreaboutcore.miner.core.PoolApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Locale
 import kotlin.math.roundToInt
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 /** Letzter Stand der CTR-API; [failed] = letzter Abruf ging schief (alter Stand bleibt sichtbar). */
 internal data class PoolLoad(val snapshot: PoolApi.Snapshot? = null, val failed: Boolean = false)
@@ -110,26 +112,6 @@ internal fun regionSplit(snap: PoolApi.Snapshot, t: Texts): String? {
     }
 }
 
-/**
- * Kurzfassung von [regionSplit] fuer die eingeklappte Laufansicht: Betraege je Region mit der Schwelle je Region.
- * Fehlt eine Region, steht immer der Hinweis darauf da (sonst waere die Summe still falsch, Skeptiker-Review 17.10.).
- */
-internal fun regionShort(snap: PoolApi.Snapshot, t: Texts): String? {
-    val open = snap.openRegions
-    return when {
-        snap.incomplete -> t.get(R.string.region_incomplete)
-        open.size > 1 -> t.get(
-            R.string.region_short,
-            open.joinToString(" · ") { r ->
-                val a = r.account!!
-                "${r.region.uppercase()} ${formatXcb(a.balanceXcb + a.immatureXcb, t.locale)}"
-            },
-            formatXcb(snap.settings.payoutThresholdXcb, t.locale),
-        )
-        else -> null
-    }
-}
-
 /** "~6 min", "~2 h": grobe Dauer fuer Laien; [approx] = false laesst die Tilde (bzw. 約) weg. */
 internal fun roughDuration(seconds: Double, t: Texts, approx: Boolean = true): String {
     val plain = when {
@@ -155,11 +137,11 @@ internal fun ago(ms: Long, t: Texts): String {
 }
 
 /** Akkuverbrauch pro Stunde seit Start/Abziehen; erst nach 10 min, vorher ist die Zahl Rauschen. */
-internal fun batteryPerHour(s: MiningState.Snapshot, now: Long): Double? {
-    val ref = s.batteryRefPercent ?: return null
-    val pct = s.batteryPercent ?: return null
-    if (s.charging != false || s.batteryRefAtMs == 0L) return null
-    val hours = (now - s.batteryRefAtMs) / 3_600_000.0
+internal fun batteryDrainPerHour(refPercent: Int?, percent: Int?, charging: Boolean?, refAtMs: Long, now: Long): Double? {
+    val ref = refPercent ?: return null
+    val pct = percent ?: return null
+    if (charging != false || refAtMs == 0L) return null
+    val hours = (now - refAtMs) / 3_600_000.0
     if (hours < 1.0 / 6) return null
     return (ref - pct) / hours
 }
@@ -177,142 +159,152 @@ internal fun dataSinceStart(start: Long, nowBytes: Long, locale: Locale): String
 }
 
 /**
- * Ertrag als Schaetzung: XCB pro Tag bei der aktuellen Leistung (abzueglich Pool-Gebuehr und Support-Anteil),
- * Guthaben im Pool, Auszahlungsregel und Anteil am Pool. Alle Zahlen kommen vom Pool selbst, kein Kurs, kein Euro.
+ * Guthaben und Ertrag beim Pool. Das Gemessene steht gross (Guthaben), das Geschaetzte als Kennzahl daneben und ist
+ * als Schaetzung beschriftet: der Pool teilt nach Funden (PPLNS), der echte Ertrag schwankt und ist nicht garantiert.
+ * Alle Zahlen kommen vom Pool selbst, kein Kurs, kein Euro.
+ * Waehrend des Laufs ([receiptHashes] = null): "XCB pro Tag" bei der aktuellen Leistung ([hashrate], null = rechnet
+ * gerade nicht). Nach dem Lauf: "Dein Anteil" = gerechnete Hashes ÷ Netz-Difficulty × Blockbelohnung. Beides
+ * abzueglich Pool-Gebuehr und Support-Anteil.
  */
 @Composable
-internal fun EarningsPanel(load: PoolLoad, hashrate: Double, computing: Boolean, explain: Boolean) {
+internal fun PoolPanel(load: PoolLoad, hashrate: Double?, explain: Boolean, receiptHashes: Long? = null) {
     val snap = load.snapshot
     val t = rememberTexts()
     val locale = t.locale
-    Panel {
-        Kick(stringResource(R.string.earnings_kick))
+    Panel(spacing = 12.dp) {
+        Kick(stringResource(R.string.earnings_in_pool), color = Brand.inkQuiet)
         if (snap == null) {
-            Text(
-                stringResource(if (load.failed) R.string.earnings_unreachable else R.string.earnings_loading),
-                style = Type.body(14.sp),
-            )
+            Text(stringResource(if (load.failed) R.string.earnings_unreachable else R.string.earnings_loading), style = Type.body(Scale.body))
             return@Panel
         }
-        val perDay = if (computing) PoolApi.xcbPerDay(hashrate, snap.network, snap.settings.feePercent) * SUPPORT_FACTOR else null
-        val perDayA11y = perDay?.let { stringResource(R.string.earnings_per_day_a11y, formatXcb(it, locale)) }
-            ?: stringResource(R.string.earnings_no_estimate_a11y)
-        // FlowRow: bei grosser Schrift rutscht die Einheit unter die Zahl, statt Zeichen fuer Zeichen umzubrechen
-        FlowRow(itemVerticalAlignment = androidx.compose.ui.Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Text(
-                perDay?.let { "≈ " + formatXcb(it, locale) } ?: "–",
-                style = Type.display(48.sp).copy(lineHeight = 0.92.em), maxLines = 1,
-                autoSize = TextAutoSize.StepBased(maxFontSize = 48.sp),
-                modifier = Modifier.semantics { contentDescription = perDayA11y },
-            )
-            Text(stringResource(R.string.earnings_per_day_unit), style = Type.body(14.sp), modifier = Modifier.padding(bottom = 6.dp))
+        val account = snap.account
+        val balance = account?.let { formatXcb(it.balanceXcb, locale) } ?: "–"
+        val note = when {
+            account == null -> stringResource(R.string.earnings_unavailable)
+            account.immatureXcb > 0 -> stringResource(R.string.earnings_balance_note) + " · " +
+                stringResource(R.string.earnings_unconfirmed, formatXcb(account.immatureXcb, locale))
+            else -> stringResource(R.string.earnings_balance_note)
         }
+        Column(Modifier.clearAndSetSemantics { contentDescription = "$balance XCB, $note" }, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            // FlowRow: bei grosser Schrift rutscht die Einheit unter die Zahl, statt Zeichen fuer Zeichen umzubrechen
+            FlowRow(itemVerticalAlignment = androidx.compose.ui.Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    balance, style = Type.display(Scale.title).copy(lineHeight = 0.92.em), maxLines = 1,
+                    autoSize = TextAutoSize.StepBased(maxFontSize = Scale.title),
+                )
+                Text("XCB", style = Type.data(Scale.small, Brand.inkQuiet).copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(bottom = 5.dp))
+            }
+            Text(note, style = Type.body(Scale.small))
+        }
+        val paid: @Composable (Modifier) -> Unit = { m ->
+            Figure(stringResource(R.string.earnings_paid), account?.let { formatXcb(it.paidXcb, locale) } ?: "–", note = stringResource(R.string.earnings_paid_note), modifier = m)
+        }
+        // Im Lauf steht "XCB pro Tag" schon unter der grossen Zahl, hier nicht noch einmal (Vorgabe: nicht ueberladen)
+        if (receiptHashes == null) FigureGrid(listOf(paid)) else FigureGrid(listOf(
+            { m ->
+                // xcbPerDay ist linear in der Hashrate: H Hashes an einem Tag = Rate H / 86.400 s
+                val estimate = receiptHashes.takeIf { it > 0 }?.let {
+                    PoolApi.xcbPerDay(it / 86_400.0, snap.network, snap.settings.feePercent) * SUPPORT_FACTOR
+                }
+                Figure(
+                    stringResource(R.string.receipt_estimate),
+                    when {
+                        estimate == null -> "–"
+                        estimate < 0.0001 -> "< " + formatXcb(0.0001, locale)
+                        else -> t.get(R.string.duration_approx, formatXcb(estimate, locale))
+                    },
+                    stringResource(R.string.receipt_estimate_note), m,
+                )
+            },
+            paid,
+        ))
+        val threshold = formatXcb(snap.settings.payoutThresholdXcb, locale)
         Text(
-            stringResource(R.string.earnings_basis_with_support, snap.settings.feePercent),
-            style = Type.body(13.sp),
+            snap.settings.payoutIntervalMin?.let { stringResource(R.string.earnings_payout_rule, threshold, roughDuration(it * 60.0, t, approx = false).replace(' ', '\u00A0')) }
+                ?: stringResource(R.string.earnings_payout_rule_plain, threshold),
+            style = Type.body(Scale.small),
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            val account = snap.account
-            Figure(
-                stringResource(R.string.earnings_in_pool), account?.let { formatXcb(it.balanceXcb, locale) } ?: "–",
-                when {
-                    account == null -> stringResource(R.string.earnings_unavailable)
-                    account.immatureXcb > 0 -> stringResource(R.string.earnings_unconfirmed, formatXcb(account.immatureXcb, locale))
-                    else -> stringResource(R.string.earnings_not_paid_yet)
-                },
-                Modifier.weight(1f),
-            )
-            Figure(
-                stringResource(R.string.earnings_payout),
-                stringResource(R.string.earnings_payout_from, formatXcb(snap.settings.payoutThresholdXcb, locale)),
-                snap.settings.payoutIntervalMin?.let {
-                    stringResource(R.string.earnings_payout_interval, roughDuration(it * 60.0, t, approx = false))
-                } ?: "XCB",
-                Modifier.weight(1f),
-            )
+        // Zugeklappt nur Zahlen und die eine Regel; Herleitung und Regionen gehoeren zur Erklaerung (Design-Audit 15.11.)
+        if (!explain) {
+            // Fehlt eine Region, steht der Hinweis immer da: sonst waere die Summe still falsch (Skeptiker-Review 17.10.)
+            if (snap.incomplete) Text(stringResource(R.string.region_incomplete), style = Type.body(Scale.small))
+            return@Panel
         }
-        (if (explain) regionSplit(snap, t) else regionShort(snap, t))?.let { Text(it, style = Type.body(13.sp)) }
-        if (!explain) return@Panel
-        if (computing && snap.network.poolHashrate > 0) {
+        if (receiptHashes == null) Text(stringResource(R.string.earnings_basis_with_support, snap.settings.feePercent), style = Type.body(Scale.small))
+        regionSplit(snap, t)?.let { Text(it, style = Type.body(Scale.small)) }
+        if (receiptHashes != null) return@Panel
+        if (hashrate != null && snap.network.poolHashrate > 0) {
             val share = hashrate / snap.network.poolHashrate * 100
             Text(
-                stringResource(
-                    R.string.earnings_pool_share,
-                    formatRate(hashrate, locale), formatPoolRate(snap.network.poolHashrate, locale), share,
-                ),
-                style = Type.data(13.sp, Brand.inkMuted),
+                stringResource(R.string.earnings_pool_share, formatRate(hashrate, locale), formatPoolRate(snap.network.poolHashrate, locale), share),
+                style = Type.data(Scale.small, Brand.inkMuted),
             )
         }
-        Text(stringResource(R.string.earnings_pplns_explainer), style = Type.body(13.sp))
+        Text(stringResource(R.string.earnings_pplns_explainer), style = Type.body(Scale.small))
     }
 }
 
 /**
- * Quittung nach dem Stopp (Design-Runde 30.10.): Kennzahlen statt eines Satzes. "Dein Anteil" ist rechnerisch:
- * gerechnete Hashes ÷ Netz-Difficulty × Blockbelohnung, abzueglich Pool-Gebuehr und Support-Anteil — so viel
- * entspricht der Lauf im Mittel, ausgezahlt wird nach den Bloecken des Pools (PPLNS), nicht garantiert. [footer]
- * nimmt den Link zur Pool-Seite auf.
+ * Quittung nach dem Stopp, Kopf: wann der Lauf begann (Eyebrow) und wie lange er dauerte (gross). Die Dauer ist
+ * gemessen, darum ist sie die grosse Zahl; der Anteil ist geschaetzt und steht als Kennzahl im Pool-Panel.
  */
 @Composable
-internal fun Receipt(summary: RunSummary, load: PoolLoad, footer: @Composable () -> Unit) {
+internal fun ReceiptHeader(summary: RunSummary, modifier: Modifier = Modifier) {
+    val t = rememberTexts()
+    val started = summary.startedAtMs.takeIf { it > 0 }?.let {
+        val pattern = android.text.format.DateFormat.getBestDateTimePattern(t.locale, "dMMMHm")
+        java.text.SimpleDateFormat(pattern, t.locale).format(java.util.Date(it))
+    }
+    val kick = listOfNotNull(stringResource(R.string.receipt_kick), started).joinToString(" · ")
+    val duration = summary.duration(t)
+    Column(
+        modifier.clearAndSetSemantics { contentDescription = "$kick, ${summary.text(t)}"; heading() },
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Text(kick.caps(), style = Type.kick.copy(color = Brand.inkQuiet))
+        Text(
+            duration, style = Type.display(Scale.big).copy(lineHeight = 0.95.em), maxLines = 1,
+            autoSize = TextAutoSize.StepBased(minFontSize = Scale.figure, maxFontSize = Scale.big),
+        )
+    }
+}
+
+/** Quittung, Kennzahlen: Funde, mittlere Rechenleistung, hoechste Waerme, Akku seit dem Start. */
+@Composable
+internal fun ReceiptFigures(summary: RunSummary) {
     val t = rememberTexts()
     val locale = t.locale
-    val snap = load.snapshot
-    val estimate = snap?.takeIf { summary.hashes > 0 }?.let {
-        // xcbPerDay ist linear in der Hashrate: H Hashes an einem Tag = Rate H / 86.400 s
-        PoolApi.xcbPerDay(summary.hashes / 86_400.0, it.network, it.settings.feePercent) * SUPPORT_FACTOR
+    val figures = mutableListOf<@Composable (Modifier) -> Unit>(
+        { m ->
+            Figure(
+                stringResource(R.string.figure_shares), "${summary.accepted}",
+                if (summary.rejected > 0) pluralStringResource(R.plurals.share_note_rejected, summary.rejected, summary.rejected) else null, m,
+            )
+        },
+        { m ->
+            val rate = summary.averageRate
+            Figure(
+                stringResource(R.string.receipt_avg_rate), rate?.let { formatRate(it, locale) + " H/s" } ?: "–",
+                if (summary.hashes > 0) stringResource(R.string.receipt_hashes_note, NumberFormat.getIntegerInstance(locale).format(summary.hashes)) else null,
+                m, spoken = rate?.let { stringResource(R.string.running_rate_a11y, formatRate(it, locale)) },
+            )
+        },
+        { m -> HeatFigure(stringResource(R.string.receipt_peak_heat), summary.maxTempC, m) },
+    )
+    // Ohne Messwert keine Kachel: ein Strich sagt nichts
+    summary.batteryChange?.let { change ->
+        figures += { m ->
+            // Bei 0 ein Wort: "±0 %" las sich wie ein Rechenausdruck
+            if (change == 0) Figure(
+                stringResource(R.string.figure_battery), stringResource(R.string.receipt_battery_same),
+                stringResource(R.string.receipt_battery_note), m, word = true,
+            ) else Figure(
+                stringResource(R.string.figure_battery), (if (change > 0) "+" else "−") + stringResource(R.string.value_percent, kotlin.math.abs(change)),
+                stringResource(R.string.receipt_battery_note), m,
+            )
+        }
     }
-    Panel(spacing = 14.dp) {
-        Kick(stringResource(R.string.receipt_kick))
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Figure(stringResource(R.string.receipt_duration), summary.duration(t), modifier = Modifier.weight(1f))
-            Figure(stringResource(R.string.figure_shares), "${summary.accepted}", modifier = Modifier.weight(1f))
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Figure(
-                stringResource(R.string.receipt_hashes),
-                if (summary.hashes > 0) NumberFormat.getIntegerInstance(locale).format(summary.hashes) else "–",
-                modifier = Modifier.weight(1f),
-            )
-            Figure(
-                stringResource(R.string.receipt_max_temp), summary.maxTempC?.let { stringResource(R.string.value_celsius, it) } ?: "–",
-                modifier = Modifier.weight(1f),
-            )
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Figure(
-                stringResource(R.string.receipt_estimate),
-                when {
-                    estimate == null -> "–"
-                    estimate < 0.0001 -> "< " + formatXcb(0.0001, locale)
-                    else -> "≈ " + formatXcb(estimate, locale)
-                },
-                stringResource(R.string.receipt_estimate_note), Modifier.weight(1f),
-            )
-            val account = snap?.account
-            Figure(
-                stringResource(R.string.earnings_in_pool), account?.let { formatXcb(it.balanceXcb, locale) } ?: "–",
-                when {
-                    snap == null -> null
-                    account == null -> stringResource(R.string.earnings_unavailable)
-                    account.immatureXcb > 0 -> stringResource(R.string.earnings_unconfirmed, formatXcb(account.immatureXcb, locale))
-                    else -> stringResource(R.string.earnings_not_paid_yet)
-                },
-                Modifier.weight(1f),
-            )
-        }
-        snap?.account?.let { account ->
-            Text(
-                stringResource(
-                    R.string.balance_payout_line,
-                    formatXcb(snap.settings.payoutThresholdXcb, locale), formatXcb(account.paidXcb, locale),
-                ),
-                style = Type.body(13.sp),
-            )
-        }
-        snap?.let { regionSplit(it, t) }?.let { Text(it, style = Type.body(13.sp)) }
-        footer()
-    }
+    Panel { FigureGrid(figures) }
 }
 
 /** Anteil, der beim Nutzer bleibt: 0,42 % Support-Anteil fuer TMMAC gehen ab (MiningService.SUPPORT_PERCENT). */

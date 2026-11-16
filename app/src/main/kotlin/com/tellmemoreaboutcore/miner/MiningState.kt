@@ -52,6 +52,8 @@ object MiningState {
         /** Akkustand und Zeit beim Start bzw. beim Abziehen des Kabels — fuer "Akku pro Stunde". */
         val batteryRefPercent: Int? = null,
         val batteryRefAtMs: Long = 0,
+        /** Akkustand bei der ersten Messung des Laufs, fuer "Akku seit dem Start" in der Quittung. */
+        val batteryStartPercent: Int? = null,
         /** Netzverkehr der App beim Start (Bytes), fuer "Datenmenge seit Start". */
         val netBytesAtStart: Long = -1,
         /** In-App-Log als Ereignisse; Text in der App-Sprache erst bei der Anzeige ([LogEntry.text]). */

@@ -9,10 +9,11 @@ package com.tellmemoreaboutcore.miner.core
  */
 object Consent {
     /**
-     * Version der Hinweistexte (`consent_*` in `app/src/main/res/values(-xx)/strings.xml`). Bei jeder Textaenderung
+     * Version der Hinweistexte (`consent_*` und die drei Verbindungs-Saetze des Einstiegs in
+     * `app/src/main/res/values(-xx)/strings.xml`). Bei jeder Textaenderung
      * erhoehen, dann fragt die App erneut; `ConsentTest` prueft per Hash, dass das nicht vergessen wird.
      */
-    const val VERSION = 4
+    const val VERSION = 5
 
     /** Pref-Schluessel in den SharedPreferences "miner" (App und Dienst). */
     const val PREF_VERSION = "consentVersion"

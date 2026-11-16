@@ -19,7 +19,20 @@ data class UiText(@StringRes val id: Int, val args: List<Any> = emptyList()) {
  * Bilanz des letzten Laufs als Daten (Quittung nach dem Stopp). [text] ist die Kurzfassung in einem Satz
  * ("Gestoppt nach 12 min · 3 Shares angenommen · max. 38 °C") fuer TalkBack.
  */
-data class RunSummary(val minutes: Long, val accepted: Int, val maxTempC: Float?, val hashes: Long = 0) {
+data class RunSummary(
+    val minutes: Long, val accepted: Int, val maxTempC: Float?, val hashes: Long = 0,
+    /** Beginn (Wanduhr) und Dauer des Laufs; 0 = unbekannt. */
+    val startedAtMs: Long = 0, val durationMs: Long = minutes * 60_000,
+    val rejected: Int = 0,
+    /** Akkustand bei der ersten und der letzten Messung des Laufs. */
+    val batteryStart: Int? = null, val batteryEnd: Int? = null,
+) {
+    /** Mittlere Rechenleistung des Laufs in H/s; null, wenn zu kurz oder nichts gerechnet. */
+    val averageRate: Double? get() = if (hashes > 0 && durationMs >= 1_000) hashes / (durationMs / 1000.0) else null
+
+    /** Akku seit dem Start in Prozentpunkten (negativ = verbraucht); null ohne Messwert. */
+    val batteryChange: Int? get() = if (batteryStart != null && batteryEnd != null) batteryEnd - batteryStart else null
+
     internal fun text(t: Texts): String {
         val shares = t.plural(R.plurals.summary_shares, accepted, accepted)
         val duration = duration(t)

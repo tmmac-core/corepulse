@@ -50,6 +50,8 @@ Dann dasselbe Passwort im Passwort-Manager speichern und die zwei Sicherungen de
 5. Das Skript vergleicht mit dem Fingerabdruck unten und bricht bei einem fremden Schluessel ab.
 6. Die APK auf ein Testgeraet installieren und kurz minen lassen.
 7. GitHub Release anlegen (nur mit Freigabe des Schluesselinhabers): APK + SHA-256 + Fingerabdruck in die Release-Notiz.
+   Erste Zeile der Notiz immer der Verweis auf die Download-Seite mit Herkunftskennung (Download-Zaehlung der
+   Website, seit 15.11.2026): `Recommended: download from the [download page](https://tellmemoreaboutcore.com/corepulse/?utm_source=github&utm_medium=release) — with install guide and checksum. The file below is the same.`
 
 Signiert wird nur lokal auf dem Mac, nicht in CI. Der Schluessel verlaesst den Rechner nie.
 
