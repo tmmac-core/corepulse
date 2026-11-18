@@ -9,7 +9,7 @@ official app of Core or CoDeTech. [Deutsch: README.de.md](README.de.md)
 ## Download
 
 - **Download page (recommended, with install guide and checksum):**
-  [tellmemoreaboutcore.com/corepulse](https://tellmemoreaboutcore.com/corepulse/?utm_source=github&utm_medium=readme)
+  [tellmemoreaboutcore.com/corepulse/](https://tellmemoreaboutcore.com/corepulse/?utm_source=github&utm_medium=readme)
 - **Direct:** [latest release on GitHub](https://github.com/tmmac-core/corepulse/releases/latest)
   (`CorePulse-<version>.apk` and `SHA256SUMS`)
 
